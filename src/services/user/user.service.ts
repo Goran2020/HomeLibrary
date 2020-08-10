@@ -28,6 +28,17 @@ export class UserService {
         return users;
     }
 
+    async getById(id: number): Promise<User | null> {
+        const user: User = await this.user.findOne(id);
+
+        if(!user) {
+            return null;
+        }
+
+        return user;
+
+    }
+
     async getByUsername(username: string): Promise<User | null> {
         const user = await this.user.findOne({
             username: username,

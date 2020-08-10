@@ -4,7 +4,7 @@ import { ApiResponse } from "src/misc/api.response";
 import { User } from "src/entities/user.entity";
 import { EditUserDto } from "src/dtos/user/edit.user.dto";
 
-@Controller('user')
+@Controller('api/user')
 export class UserController {
     constructor(
         private readonly userService: UserService
