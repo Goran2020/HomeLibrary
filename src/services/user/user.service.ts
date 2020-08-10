@@ -28,6 +28,18 @@ export class UserService {
         return users;
     }
 
+    async getByUsername(username: string): Promise<User | null> {
+        const user = await this.user.findOne({
+            username: username,
+        })
+
+        if (!user) {
+            return null;
+        }
+
+        return user;
+        
+    }
 
     // Dodaj novog korisnika - registracija //
     async addUser(data: AddUserDto): Promise<User | ApiResponse> {

@@ -19,4 +19,7 @@ export class UserController {
     passwordChange(@Param('id') id: number, @Body() data: EditUserDto): Promise<User | ApiResponse> {
         return this.userService.editUser(id, data);
     }
+
+    
+
 }

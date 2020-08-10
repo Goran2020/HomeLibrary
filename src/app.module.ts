@@ -54,7 +54,8 @@ import { BookController } from './controllers/api/book.controller';
     AuthController,
     CategoryController,
     AuthorController,
-    BookController
+    BookController,
+    AuthController,
   ],
   providers: [
     UserService,
