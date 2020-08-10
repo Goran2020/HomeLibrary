@@ -12,6 +12,7 @@ import { UserService } from './services/user/user.service';
 import { UserController } from './controllers/api/user.controller';
 import { User } from './entities/user.entity';
 import { Location } from './entities/location.entity';
+import { AuthController } from './controllers/api/auth.controller';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { Location } from './entities/location.entity';
   controllers: [
     AppController,
     UserController,
+    AuthController
   ],
   providers: [UserService],
 })
