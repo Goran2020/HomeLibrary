@@ -17,6 +17,8 @@ import { CategoryController } from './controllers/api/category.controller';
 import { CategoryService } from './services/category/category.service';
 import { AuthorService } from './services/author/author.service';
 import { AuthorController } from './controllers/api/author.controller';
+import { BookService } from './services/book/book.service';
+import { BookController } from './controllers/api/book.controller';
 
 @Module({
   imports: [
@@ -42,6 +44,8 @@ import { AuthorController } from './controllers/api/author.controller';
       User,
       Category,
       Author,
+      Book,
+      BookAuthor,
     ])
   ],
   controllers: [
@@ -50,11 +54,13 @@ import { AuthorController } from './controllers/api/author.controller';
     AuthController,
     CategoryController,
     AuthorController,
+    BookController
   ],
   providers: [
     UserService,
     CategoryService,
-    AuthorService
+    AuthorService,
+    BookService,
   ],
 })
 export class AppModule {}

@@ -7,7 +7,7 @@ import { AddUserDto } from "src/dtos/user/add.user.dto";
 @Controller('auth')
 export class AuthController {
     constructor(
-        private readonly userService: UserService
+        public userService: UserService
     ) {}
 
     //  Registracija novih korisnika //

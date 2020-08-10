@@ -3,9 +3,12 @@ import {
   Entity,
   Index,
   OneToMany,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  JoinTable
 } from "typeorm";
 import { BookAuthor } from "./book-author.entity";
+import { Book } from "./book.entity";
 
 @Index("uq_author_forename_surname", ["forename", "surname"], { unique: true })
 @Entity("author")
@@ -32,4 +35,12 @@ export class Author {
     bookAuthor => bookAuthor.author
   )
   bookAuthors: BookAuthor[];
+
+  @ManyToMany(type => Book, book => book.authors)
+  @JoinTable({
+    name: 'book_author',
+    joinColumn: { name: 'author_id', referencedColumnName: 'authorId' },
+    inverseJoinColumn: { name: 'book_id', referencedColumnName: 'bookId' }
+  })
+  books: Book[]
 }

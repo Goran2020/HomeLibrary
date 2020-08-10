@@ -5,13 +5,16 @@ import {
   JoinColumn,
   ManyToOne,
   OneToMany,
-  PrimaryGeneratedColumn
+  PrimaryGeneratedColumn,
+  ManyToMany,
+  JoinTable
 } from "typeorm";
 import { Category } from "./category.entity";
 import { Location } from "./location.entity";
 import { Publisher } from "./publisher.entity";
 import { BookAuthor } from "./book-author.entity";
 import { Photo } from "./photo.entity";
+import { Author } from "./author.entity";
 
 @Index("uk_book_isbn", ["isbn"], { unique: true })
 @Index("uq_book_catalog_number", ["catalogNumber"], { unique: true })
@@ -75,6 +78,13 @@ export class Book {
   catalogNumber: string;
 
   @Column({ 
+    type: "smallint", 
+    name: "is_visible", 
+    unsigned: true
+  })
+  isVisible: number;
+
+  @Column({ 
     type: "int", 
     name: "category_id", 
     unsigned: true
@@ -130,4 +140,14 @@ export class Book {
     photo => photo.book
   )
   photos: Photo[];
+
+  @ManyToMany(type => Author, author => author.books)
+  @JoinTable({
+    name: 'book_author',
+    joinColumn: { name: 'book_id', referencedColumnName: 'bookId' },
+    inverseJoinColumn: { name: 'author_id', referencedColumnName: 'authorId' }
+  })
+  authors: Author[]
 }
+
+
