@@ -1,9 +1,19 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn
+} from "typeorm";
+import { Author } from "./author.entity";
+import { Book } from "./book.entity";
 
 @Index("uq_book_author_book_id_author_id", ["bookId", "authorId"], {
   unique: true
 })
-@Entity("book_author", { schema: "library" })
+@Index("fk_book_author_author_id", ["authorId"], {})
+@Entity("book_author")
 export class BookAuthor {
   @PrimaryGeneratedColumn({
     type: "int",
@@ -25,4 +35,20 @@ export class BookAuthor {
     unsigned: true
   })
   authorId: number;
+
+  @ManyToOne(
+    () => Author,
+    author => author.bookAuthors,
+    { onDelete: "RESTRICT", onUpdate: "CASCADE" }
+  )
+  @JoinColumn([{ name: "author_id", referencedColumnName: "authorId" }])
+  author: Author;
+
+  @ManyToOne(
+    () => Book,
+    book => book.bookAuthors,
+    { onDelete: "RESTRICT", onUpdate: "CASCADE" }
+  )
+  @JoinColumn([{ name: "book_id", referencedColumnName: "bookId" }])
+  book: Book;
 }

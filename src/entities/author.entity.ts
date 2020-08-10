@@ -1,4 +1,11 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  Index,
+  OneToMany,
+  PrimaryGeneratedColumn
+} from "typeorm";
+import { BookAuthor } from "./book-author.entity";
 
 @Index("uq_author_forename_surname", ["forename", "surname"], { unique: true })
 @Entity("author")
@@ -13,10 +20,16 @@ export class Author {
   })
   forename: string;
 
-  @Column({
+  @Column({ 
     type: "varchar", 
     name: "surname", 
     length: 50
   })
   surname: string;
+
+  @OneToMany(
+    () => BookAuthor,
+    bookAuthor => bookAuthor.author
+  )
+  bookAuthors: BookAuthor[];
 }

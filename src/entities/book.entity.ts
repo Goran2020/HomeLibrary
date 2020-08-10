@@ -4,18 +4,21 @@ import {
   Index,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn
 } from "typeorm";
-import { Category } from "./Category";
-import { Location } from "./Location";
-import { Publisher } from "./Publisher";
+import { Category } from "./category.entity";
+import { Location } from "./location.entity";
+import { Publisher } from "./publisher.entity";
+import { BookAuthor } from "./book-author.entity";
+import { Photo } from "./photo.entity";
 
 @Index("uk_book_isbn", ["isbn"], { unique: true })
 @Index("uq_book_catalog_number", ["catalogNumber"], { unique: true })
 @Index("fk_book_category_id", ["categoryId"], {})
 @Index("fk_book_publisher_id", ["publisherId"], {})
 @Index("fk_book_location_id", ["locationId"], {})
-@Entity("book", { schema: "library" })
+@Entity("book")
 export class Book {
   @PrimaryGeneratedColumn({ type: "int", name: "book_id", unsigned: true })
   bookId: number;
@@ -115,4 +118,16 @@ export class Book {
   )
   @JoinColumn([{ name: "publisher_id", referencedColumnName: "publisherId" }])
   publisher: Publisher;
+
+  @OneToMany(
+    () => BookAuthor,
+    bookAuthor => bookAuthor.book
+  )
+  bookAuthors: BookAuthor[];
+
+  @OneToMany(
+    () => Photo,
+    photo => photo.book
+  )
+  photos: Photo[];
 }

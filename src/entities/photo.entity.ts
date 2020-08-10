@@ -1,17 +1,21 @@
-import { Column, Entity, Index, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  Entity,
+  Index,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn
+} from "typeorm";
+import { Book } from "./book.entity";
 
 @Index("uq_photo_book_id_cover", ["bookId", "cover"], { unique: true })
 @Index("uq_image_path", ["imagePath"], { unique: true })
-@Entity("photo", { schema: "library" })
+@Entity("photo")
 export class Photo {
   @PrimaryGeneratedColumn({ type: "int", name: "photo_id", unsigned: true })
   photoId: number;
 
-  @Column({ 
-    type: "int", 
-    name: "book_id", 
-    unsigned: true
-  })
+  @Column("int", { name: "book_id", unsigned: true, default: () => "'0'" })
   bookId: number;
 
   @Column({
@@ -29,4 +33,12 @@ export class Photo {
     length: 128
   })
   imagePath: string;
+
+  @ManyToOne(
+    () => Book,
+    book => book.photos,
+    { onDelete: "RESTRICT", onUpdate: "CASCADE" }
+  )
+  @JoinColumn([{ name: "book_id", referencedColumnName: "bookId" }])
+  book: Book;
 }

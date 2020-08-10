@@ -8,7 +8,7 @@ import {
 import { Book } from "./book.entity";
 
 @Index("uq_category_name", ["name"], { unique: true })
-@Entity("category", { schema: "library" })
+@Entity("category")
 export class Category {
   @PrimaryGeneratedColumn({ type: "int", name: "category_id", unsigned: true })
   categoryId: number;

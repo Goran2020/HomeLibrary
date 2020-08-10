@@ -8,9 +8,10 @@ import { Book } from './entities/book.entity';
 import { Category } from './entities/category.entity';
 import { Photo } from './entities/photo.entity';
 import { Publisher } from './entities/publisher.entity';
-import { User } from './entities/user.entity';
+
 import { UserService } from './services/user/user.service';
 import { UserController } from './controllers/api/user.controller';
+import { User } from './entities/user.entity';
 
 @Module({
   imports: [
