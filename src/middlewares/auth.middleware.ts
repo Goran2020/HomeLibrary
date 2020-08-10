@@ -21,7 +21,9 @@ export class AuthMiddleware implements NestMiddleware {
 
         const token = req.headers.authorization;
 
+        // deserijalizacija radi upoređivanja
         const jwtData: JwtDataUserDto = jwt.verify(token, jwtSecret);
+        // console.log(jwtData);
 
         if (!jwtData) {
             throw new HttpException('Bad token found', HttpStatus.UNAUTHORIZED);
