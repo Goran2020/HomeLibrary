@@ -13,6 +13,10 @@ import { UserController } from './controllers/api/user.controller';
 import { User } from './entities/user.entity';
 import { Location } from './entities/location.entity';
 import { AuthController } from './controllers/api/auth.controller';
+import { CategoryController } from './controllers/api/category.controller';
+import { CategoryService } from './services/category/category.service';
+import { AuthorService } from './services/author/author.service';
+import { AuthorController } from './controllers/api/author.controller';
 
 @Module({
   imports: [
@@ -36,13 +40,21 @@ import { AuthController } from './controllers/api/auth.controller';
     }),
     TypeOrmModule.forFeature([
       User,
+      Category,
+      Author,
     ])
   ],
   controllers: [
     AppController,
     UserController,
-    AuthController
+    AuthController,
+    CategoryController,
+    AuthorController,
   ],
-  providers: [UserService],
+  providers: [
+    UserService,
+    CategoryService,
+    AuthorService
+  ],
 })
 export class AppModule {}
