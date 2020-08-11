@@ -44,6 +44,7 @@ export class AuthController {
         // userId, username, i token su nam potrebni 
         // prvimo token, serijalizacija podataka
         const jwtData = new JwtDataUserDto();
+               
         jwtData.userId = user.userId;
         jwtData.username = user.username;
 

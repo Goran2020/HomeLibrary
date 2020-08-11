@@ -46,6 +46,14 @@ export class AuthMiddleware implements NestMiddleware {
             throw new HttpException('Nema jwtData', HttpStatus.UNAUTHORIZED);
         }
 
+        if (jwtData.role === "user") {
+            const user: User = await this.userService.getById(jwtData.userId);
+
+            if (!user) {
+                throw new HttpException('Account not found.', HttpStatus.UNAUTHORIZED);
+            }
+        }
+
         if (jwtData.ip !== req.ip.toString()) {
             throw new HttpException('Bad token found', HttpStatus.UNAUTHORIZED);
         }
@@ -54,11 +62,7 @@ export class AuthMiddleware implements NestMiddleware {
             throw new HttpException('Bad token found', HttpStatus.UNAUTHORIZED);
         }
         //  console.log(jwtData.userId);
-        const user: User = await this.userService.getById(jwtData.userId);
-
-        if (!user) {
-            throw new HttpException('Account not found.', HttpStatus.UNAUTHORIZED);
-        }
+        
 
         let sada = new Date();
 
@@ -67,6 +71,8 @@ export class AuthMiddleware implements NestMiddleware {
         if (trenutniTimestapm >= jwtData.exp) {
             throw new HttpException('The token has expired.', HttpStatus.UNAUTHORIZED);
         }
+
+        req.token = jwtData;
 
         next();
     }

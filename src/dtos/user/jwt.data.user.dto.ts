@@ -1,4 +1,5 @@
 export class JwtDataUserDto {
+    role: "user";
     userId: number;
     username: string;
     exp: number;
@@ -7,6 +8,7 @@ export class JwtDataUserDto {
 
     toPlainObject() {
         return  {
+            role: this.role,
             userId: this.userId,
             username: this.username,
             exp: this.exp,

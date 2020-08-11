@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Param, UseInterceptors, UploadedFile, Req, Delete, Patch } from "@nestjs/common";
+import { Controller, Post, Body, Param, UseInterceptors, UploadedFile, Req, Delete, Patch, UseGuards } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Book } from "src/entities/book.entity";
 import { BookService } from "src/services/book/book.service";
@@ -14,6 +14,9 @@ import * as fileType from 'file-type';
 import * as fs from 'fs'
 import * as sharp from 'sharp';
 import { EditBookDto } from "src/dtos/book/edit.book.dto";
+import { AllowToRoles } from "src/misc/allow.to.roles.descriptor";
+import { RoleCheckerGuard } from "src/misc/role.checker.guard";
+
 
 @Controller('api/book')
 @Crud({
@@ -50,20 +53,27 @@ export class BookController {
         public photoService: PhotoService
     ) {}
 
+    
     @Post('createBook')
+    @UseGuards(RoleCheckerGuard)    
+    @AllowToRoles('user')
     createBook(@Body() data: AddBookDto) {
         return this.service.createBook(data);
     }
 
-
+    
     @Patch(':id')
+    @UseGuards(RoleCheckerGuard)    
+    @AllowToRoles('user')
     async editBook(@Param('id') id: number, @Body() data: EditBookDto): Promise<Book | ApiResponse> {
         return await this.service.editBook(id, data);
     }
 
 
-
+    
     @Post(':id/uploadPhoto')
+    @UseGuards(RoleCheckerGuard)    
+    @AllowToRoles('user')
     @UseInterceptors(
         FileInterceptor('photo', {
             storage: diskStorage({
@@ -111,6 +121,8 @@ export class BookController {
             }
         })
     )
+
+    
     async uploadPhoto(
         @Param('id') bookId: number, 
         @UploadedFile() photo, 
@@ -184,7 +196,10 @@ export class BookController {
             .toFile(destinationFilePath);
     }
 
+    
     @Delete(':bookId/deletePhoto/:photoId')
+    @UseGuards(RoleCheckerGuard)    
+    @AllowToRoles('user')
     public async deletePhoto(@Param('bookId') delBookId: number, @Param('photoId') delPhotoId: number) {
         const photo = await this.photoService.findOne({
             bookId: delBookId,
