@@ -55,7 +55,7 @@ export class BookController {
     @UseInterceptors(
         FileInterceptor('photo', {
             storage: diskStorage({
-                destination: StorageConfig.photoDestination,
+                destination: StorageConfig.photo.destination,
                 filename: (req, file, callback) => {
                     let original = file.originalname;
                     let normalized = original.replace(/\s+/g, '-');
@@ -95,7 +95,7 @@ export class BookController {
             },
             limits: {
                 files: 1,
-                fileSize: StorageConfig.maxFileSize,
+                fileSize: StorageConfig.photo.maxFileSize,
             }
         })
     )
@@ -147,29 +147,27 @@ export class BookController {
     }
 
     async createThumb(photo) {
-        const originalFilePath = photo.path;
-        const fileName = photo.filename;
-
-        const destinationFilePath = StorageConfig.photoDestination + "thumb/" + fileName;
-        await sharp(originalFilePath)
-            .resize({
-                fit: 'cover',
-                width: StorageConfig.photoThumbSize.width,
-                height: StorageConfig.photoThumbSize.height
-            })
-            .toFile(destinationFilePath);
+        await this.createResizedImage(photo, StorageConfig.photo.resize.thumb)
     }
 
     async createSmall(photo) {
+        await this.createResizedImage(photo, StorageConfig.photo.resize.small)
+    }
+
+    async createResizedImage(photo, resizeSettings) {
         const originalFilePath = photo.path;
         const fileName = photo.filename;
 
-        const destinationFilePath = StorageConfig.photoDestination + "small/" + fileName;
+        const destinationFilePath = 
+            StorageConfig.photo.destination + 
+            resizeSettings.directory + 
+            fileName;
+
         await sharp(originalFilePath)
             .resize({
                 fit: 'cover',
-                width: StorageConfig.photoSmallSize.width,
-                height: StorageConfig.photoSmallSize.height
+                width: resizeSettings.width,
+                height: resizeSettings.height
             })
             .toFile(destinationFilePath);
     }
