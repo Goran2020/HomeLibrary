@@ -47,7 +47,7 @@ export class AuthController {
                
         jwtData.userId = user.userId;
         jwtData.username = user.username;
-
+        jwtData.role = "user";
         let sada = new Date();
         sada.setDate(sada.getDate() + 14);  // trenutni datum + 14 dana
 
@@ -57,7 +57,7 @@ export class AuthController {
         jwtData.ua = req.headers['user-agent'];
 
         // potpisivanje tokena //
-
+        //console.log("jwtData:",jwtData);
         let token: string = jwt.sign(jwtData.toPlainObject(), jwtSecret);
 
         const responseObject = new LoginInfoUserDto(

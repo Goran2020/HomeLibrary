@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Param, Body, SetMetadata, UseGuards } from "@nestjs/common";
+import { Controller, Get, Post, Param, Body, UseGuards, Patch } from "@nestjs/common";
 import { UserService } from "src/services/user/user.service";
 import { ApiResponse } from "src/misc/api.response";
 import { User } from "src/entities/user.entity";
@@ -19,7 +19,7 @@ export class UserController {
         return this.userService.getAllUsers();
     }
 
-    @Post(':id')
+    @Patch(':id')
     @UseGuards(RoleCheckerGuard) 
     @AllowToRoles('user')
     passwordChange(@Param('id') id: number, @Body() data: EditUserDto): Promise<User | ApiResponse> {

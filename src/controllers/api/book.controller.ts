@@ -44,7 +44,22 @@ import { RoleCheckerGuard } from "src/misc/role.checker.guard";
         }
     },
     routes: {
-        exclude: [ 'updateOneBase' ]
+        only: [
+            'getOneBase',
+            'getManyBase'
+        ],
+        getOneBase: {
+            decorators: [
+                UseGuards(RoleCheckerGuard),
+                AllowToRoles('user')
+            ]
+        },
+        getManyBase: {
+            decorators: [
+                UseGuards(RoleCheckerGuard),
+                AllowToRoles('user')
+            ]
+        }
     }
 })
 export class BookController {
