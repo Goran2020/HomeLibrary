@@ -21,12 +21,29 @@ export class AuthMiddleware implements NestMiddleware {
 
         const token = req.headers.authorization;
 
+        const tokenParts = token.split(' ');
+
+        if (tokenParts.length !== 2) {
+            throw new HttpException('TokenParts !== 2', HttpStatus.UNAUTHORIZED);
+        }
+
+        const tokenString = tokenParts[1];
+
+        let jwtData: JwtDataUserDto;
+
         // deserijalizacija radi upoređivanja
-        const jwtData: JwtDataUserDto = jwt.verify(token, jwtSecret);
+        try {
+            jwtData = jwt.verify(tokenString, jwtSecret);
+        } catch (e) {
+            throw new HttpException('Greška deserijalizacija', HttpStatus.UNAUTHORIZED);
+        }
+
+        
+        
         // console.log(jwtData);
 
         if (!jwtData) {
-            throw new HttpException('Bad token found', HttpStatus.UNAUTHORIZED);
+            throw new HttpException('Nema jwtData', HttpStatus.UNAUTHORIZED);
         }
 
         if (jwtData.ip !== req.ip.toString()) {

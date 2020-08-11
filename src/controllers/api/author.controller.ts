@@ -16,6 +16,16 @@ import { AuthorService } from "src/services/author/author.service";
             type: 'number',
             primary: true
         }
+    },
+    query: {
+        join: {
+            bookAuthors: {
+                eager: false
+            },
+            books: {
+                eager: true
+            }
+        }
     }
 })
 export class AuthorController {
