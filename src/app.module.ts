@@ -20,6 +20,7 @@ import { AuthorController } from './controllers/api/author.controller';
 import { BookService } from './services/book/book.service';
 import { BookController } from './controllers/api/book.controller';
 import { AuthMiddleware } from './middlewares/auth.middleware';
+import { PhotoService } from './services/photo/photo.service';
 
 @Module({
   imports: [
@@ -47,6 +48,7 @@ import { AuthMiddleware } from './middlewares/auth.middleware';
       Author,
       Book,
       BookAuthor,
+      Photo
     ])
   ],
   controllers: [
@@ -63,6 +65,7 @@ import { AuthMiddleware } from './middlewares/auth.middleware';
     CategoryService,
     AuthorService,
     BookService,
+    PhotoService
   ],
   exports: [
     UserService

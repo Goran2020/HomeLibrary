@@ -6,6 +6,7 @@ import { Book } from "src/entities/book.entity";
 import { AddBookDto } from "src/dtos/book/add.book.dto";
 import { ApiResponse } from "src/misc/api.response";
 import { BookAuthor } from "src/entities/book-author.entity";
+import { AddPhotoDto } from "src/dtos/photo/add.photo.dto";
 
 @Injectable()
 export class BookService extends TypeOrmCrudService<Book> {
@@ -34,7 +35,7 @@ export class BookService extends TypeOrmCrudService<Book> {
 
         let now = new Date();
         let catalogNo: string = '';
-        catalogNo += now.getFullYear();
+        catalogNo += (Math.random() * now.getFullYear()).toFixed(0).toString();
         catalogNo += now.getMonth() + 10;
         catalogNo += now.getDay() + 10;
         catalogNo += now.getDate() + 10
@@ -58,5 +59,9 @@ export class BookService extends TypeOrmCrudService<Book> {
             ]
         })
         
+    }
+
+    getCover(data: AddPhotoDto): string {
+        return data.cover;
     }
 }
