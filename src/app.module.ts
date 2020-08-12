@@ -21,6 +21,7 @@ import { BookService } from './services/book/book.service';
 import { BookController } from './controllers/api/book.controller';
 import { AuthMiddleware } from './middlewares/auth.middleware';
 import { PhotoService } from './services/photo/photo.service';
+import { UserToken } from './entities/user-token.entity';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { PhotoService } from './services/photo/photo.service';
         Photo,
         Publisher,
         User,
+        UserToken
       ]
     }),
     TypeOrmModule.forFeature([
@@ -48,7 +50,8 @@ import { PhotoService } from './services/photo/photo.service';
       Author,
       Book,
       BookAuthor,
-      Photo
+      Photo,
+      UserToken
     ])
   ],
   controllers: [

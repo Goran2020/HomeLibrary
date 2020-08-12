@@ -6,12 +6,15 @@ import { ApiResponse } from 'src/misc/api.response';
 import { AddUserDto } from 'src/dtos/user/add.user.dto';
 import * as crypto from 'crypto';
 import { EditUserDto } from 'src/dtos/user/edit.user.dto';
+import { UserToken } from 'src/entities/user-token.entity';
 
 @Injectable()
 export class UserService {
     constructor(
         @InjectRepository(User)
-        private readonly user: Repository<User>
+        private readonly user: Repository<User>,
+        @InjectRepository(UserToken)
+        private readonly userToken: Repository<UserToken>
     ) {}
     
     
@@ -96,5 +99,58 @@ export class UserService {
     }
     
 
+    // metod koji upisuje RT usera u BP
+    async addToken(userId: number, token: string, expiresAt: string): Promise<UserToken | ApiResponse> {
+        const userToken = new UserToken();
+
+        userToken.userId = userId;
+        userToken.token = token;
+        userToken.expiresAt = expiresAt;
+        
+        if (!userToken) {
+            return new ApiResponse('error', -8008, 'Token canno be added.');
+        }
+        return await this.userToken.save(userToken);
+    }
+
+    // metod koji će dopremiti token //
+
+    async getUserToken(token: string): Promise<UserToken> {
+        return await this.userToken.findOne({
+            token: token
+        });
+    }
+
+    // disable-ovanje tokena
+
+    async invalidateToken(token: string): Promise<UserToken | ApiResponse> {
+        const userToken = await this.userToken.findOne({
+            token: token,
+        })
+
+        if (!userToken) {
+            return new ApiResponse('error', -8008, 'Token cannot be added.');
+        }
+
+        userToken.isValid = 0;
+
+        await this.userToken.save(userToken);
+
+        return await this.getUserToken(token);
+    }
+
+    async invlidateUserTokens(userId: number): Promise<(UserToken| ApiResponse)[]> {
+        const userTokens = await this.userToken.find({
+            userId : userId
+        });
+
+        const results = [];
+
+        for (const userToken of userTokens) {
+            results.push(this.invalidateToken(userToken.token));
+        }
+
+        return results;
+    }
 
 }
