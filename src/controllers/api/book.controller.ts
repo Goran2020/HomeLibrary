@@ -16,6 +16,7 @@ import * as sharp from 'sharp';
 import { EditBookDto } from "src/dtos/book/edit.book.dto";
 import { AllowToRoles } from "src/misc/allow.to.roles.descriptor";
 import { RoleCheckerGuard } from "src/misc/role.checker.guard";
+import { BookSearchDto } from "src/dtos/book/book.search.dto";
 
 
 @Controller('api/book')
@@ -245,4 +246,10 @@ export class BookController {
 
         return new ApiResponse('ok', 0, 'One photo deleted!');
     }
+
+    @Post('search')
+    async search(@Body() data: BookSearchDto): Promise<Book[]> {
+        return await this.service.search(data);
+    }
+
 }
