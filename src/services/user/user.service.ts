@@ -77,7 +77,7 @@ export class UserService {
             return createUser;
 
         } catch(e) {
-            return new ApiResponse('error', -8003, 'Account cannot be created');
+            return new ApiResponse('error', -8003, 'Duplicate Username. A username can only be used once.');
         }
     }
 

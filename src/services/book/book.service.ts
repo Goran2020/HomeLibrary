@@ -112,7 +112,7 @@ export class BookService extends TypeOrmCrudService<Book> {
         });
     }
 
-    async search(data: BookSearchDto): Promise<Book[]> {
+    async search(data: BookSearchDto): Promise<Book[] | ApiResponse> {
         const builder = await this.book.createQueryBuilder('book');
 
         builder.innerJoinAndSelect("book.bookAuthors", "bba");
@@ -157,6 +157,10 @@ export class BookService extends TypeOrmCrudService<Book> {
         builder.orderBy(orderBy, orderDirection);
 
         let itemsIds = await (await builder.getMany()).map(book => book.bookId);
+
+        if (itemsIds.length === 0) {
+            return new ApiResponse('ok', 0, 'No books found.');
+        }
 
         return await this.book.find({
             where: {

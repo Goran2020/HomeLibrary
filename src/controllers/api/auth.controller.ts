@@ -20,7 +20,7 @@ export class AuthController {
     ) {}
 
     //  Registracija novih korisnika //
-    @Post('user/register')
+    @Post('register')
     userRegister(@Body() data: AddUserDto): Promise<User | ApiResponse> {
         return this.userService.addUser(data);
     }

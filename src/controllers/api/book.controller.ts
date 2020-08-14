@@ -248,7 +248,7 @@ export class BookController {
     }
 
     @Post('search')
-    async search(@Body() data: BookSearchDto): Promise<Book[]> {
+    async search(@Body() data: BookSearchDto): Promise<Book[] | ApiResponse> {
         return await this.service.search(data);
     }
 

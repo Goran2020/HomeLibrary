@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { NestExpressApplication } from '@nestjs/platform-express';
 import { StorageConfig } from 'config/storage.config';
 
+
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
   
@@ -12,8 +13,10 @@ async function bootstrap() {
       prefix: StorageConfig.photo.urlPrefix,
       maxAge: StorageConfig.photo.maxAge, // 7 dana
       index: false // bez indeksiranja
-    }  
+    }   
   );
+
+  app.enableCors();
   
   
   
