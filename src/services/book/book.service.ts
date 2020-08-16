@@ -1,4 +1,4 @@
-import { Injectable } from "@nestjs/common";
+import { Injectable, Post, Body } from "@nestjs/common";
 import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository, In } from "typeorm";
@@ -8,6 +8,10 @@ import { ApiResponse } from "src/misc/api.response";
 import { BookAuthor } from "src/entities/book-author.entity";
 import { EditBookDto } from "src/dtos/book/edit.book.dto";
 import { BookSearchDto } from "src/dtos/book/book.search.dto";
+import { Author } from "src/entities/author.entity";
+
+
+
 
 @Injectable()
 export class BookService extends TypeOrmCrudService<Book> {
@@ -16,7 +20,10 @@ export class BookService extends TypeOrmCrudService<Book> {
         private readonly book: Repository<Book>,
 
         @InjectRepository(BookAuthor)
-        private readonly bookAuthor: Repository<BookAuthor>
+        private readonly bookAuthor: Repository<BookAuthor>,
+
+        @InjectRepository(Author)
+        private readonly autor: Repository<Author>
     ) {
         super(book);
     }
@@ -112,10 +119,12 @@ export class BookService extends TypeOrmCrudService<Book> {
         });
     }
 
+    
+
     async search(data: BookSearchDto): Promise<Book[] | ApiResponse> {
         const builder = await this.book.createQueryBuilder('book');
 
-        builder.innerJoinAndSelect("book.bookAuthors", "bba");
+        builder.leftJoinAndSelect("book.bookAuthors", "bba");
         builder.innerJoinAndSelect('book.authors', "ba");
         builder.where('book.categoryId = :id', { id: data.categoryId });
         
@@ -136,10 +145,10 @@ export class BookService extends TypeOrmCrudService<Book> {
             builder.andWhere('book.publicationYear = :yearMax', { yearMax: data.publicationYear })
         }
 
-        if (data.authors && data.authors.length > 0) {
-            for (const author of data.authors) {
-                builder.andWhere('bba.author_id = :aId', { aId: author.authorId });
-            }
+        if (data.authorId && typeof data.authorId === 'number' ) {
+            
+                builder.andWhere('bba.author_id = :aId', { aId: data.authorId });
+            
             
         }
 
@@ -155,13 +164,17 @@ export class BookService extends TypeOrmCrudService<Book> {
         }
 
         builder.orderBy(orderBy, orderDirection);
+        
+        let books = await builder.getMany();
+        
+        
 
-        let itemsIds = await (await builder.getMany()).map(book => book.bookId);
-
-        if (itemsIds.length === 0) {
+        if (books.length === 0) {
             return new ApiResponse('ok', 0, 'No books found.');
         }
 
+        return books;
+/*
         return await this.book.find({
             where: {
                 bookId: In(itemsIds)
@@ -171,7 +184,33 @@ export class BookService extends TypeOrmCrudService<Book> {
                 "authors",
                 "category"
             ]
-        });
+        });*/
+    }
+    /*
+    async getAllBookIds(id: number): Promise<number[]> {
+        const books = await this.book.find({
+            categoryId: id
+        })
+
+        const bookIds = books.map(book => book.bookId);
+
+        
+        return bookIds;
     }
 
+    async getAllAuthors(id: number): Promise<Author[]> {
+        const book: number[] = await this.getAllBookIds(id);
+        const booksId = await this.bookAuthor.find({
+            where: { bookId: In(book)}
+        })
+
+        const authorIds = booksId.map(author => author.authorId)
+
+        const authors = await this.autor.find({
+            where: {
+                authorId: In(authorIds),
+            }
+        })
+        return authors;
+    }*/
 }

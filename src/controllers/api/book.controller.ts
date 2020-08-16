@@ -19,6 +19,7 @@ import { RoleCheckerGuard } from "src/misc/role.checker.guard";
 import { BookSearchDto } from "src/dtos/book/book.search.dto";
 
 
+
 @Controller('api/book')
 @Crud({
     model: {
@@ -251,5 +252,6 @@ export class BookController {
     async search(@Body() data: BookSearchDto): Promise<Book[] | ApiResponse> {
         return await this.service.search(data);
     }
+    
 
 }

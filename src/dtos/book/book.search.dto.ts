@@ -5,7 +5,8 @@ export class BookSearchDto {
     keywords: string;
     title: string;
     publicationYear: number;
-    authors: BookSearchAuthorComponentDto[];
+    authorId: number; 
+    //authors: BookSearchAuthorComponentDto[];
     orderBy: 'title' | 'year';
     orderDirection: 'ASC' | 'DESC';
     page: number;

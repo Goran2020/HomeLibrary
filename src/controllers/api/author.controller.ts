@@ -1,9 +1,11 @@
-import { Controller, UseGuards } from "@nestjs/common";
+import { Controller, UseGuards, Body, Post } from "@nestjs/common";
 import { Crud } from "@nestjsx/crud";
 import { Author } from "src/entities/author.entity";
 import { AuthorService } from "src/services/author/author.service";
 import { RoleCheckerGuard } from "src/misc/role.checker.guard";
 import { AllowToRoles } from "src/misc/allow.to.roles.descriptor";
+import { SingleAuthorDto } from "src/dtos/author/single-author.dto";
+import { ApiResponse } from "src/misc/api.response";
 
 
 
@@ -73,4 +75,11 @@ export class AuthorController {
     constructor(
         public service: AuthorService
     ) {}
+
+
+    @Post('findOne')
+    async getAuthorByForenameAndSurname(@Body() data: SingleAuthorDto): Promise<Author | ApiResponse> {
+        return this.service.getOneAuthor(data);
+    }
+    
 }
