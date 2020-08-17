@@ -22,6 +22,10 @@ import { BookController } from './controllers/api/book.controller';
 import { AuthMiddleware } from './middlewares/auth.middleware';
 import { PhotoService } from './services/photo/photo.service';
 import { UserToken } from './entities/user-token.entity';
+import { PublisherService } from './services/publisher/publisher.service';
+import { PublisherController } from './controllers/api/publisher.controller';
+import { LocationrController } from './controllers/api/location.controller';
+import { LocationService } from './services/location/location.service';
 
 @Module({
   imports: [
@@ -51,7 +55,9 @@ import { UserToken } from './entities/user-token.entity';
       Book,
       BookAuthor,
       Photo,
-      UserToken
+      UserToken,
+      Publisher,
+      Location
     ])
   ],
   controllers: [
@@ -62,13 +68,17 @@ import { UserToken } from './entities/user-token.entity';
     AuthorController,
     BookController,
     AuthController,
+    PublisherController,
+    LocationrController
   ],
   providers: [
     UserService,
     CategoryService,
     AuthorService,
     BookService,
-    PhotoService
+    PhotoService,
+    PublisherService,
+    LocationService
   ],
   exports: [
     UserService
