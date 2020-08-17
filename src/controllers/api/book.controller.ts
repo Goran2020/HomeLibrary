@@ -42,6 +42,12 @@ import { BookSearchDto } from "src/dtos/book/book.search.dto";
             },
             photos: {
                 eager: true
+            },
+            location: {
+                eager: true
+            },
+            publisher: {
+                eager: true
             }
         }
     },
