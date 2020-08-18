@@ -10,7 +10,6 @@ export class AddBookDto {
     publisherId: number;
     locationId: number;
     authors: {
-        authorId: number;
-        bookId: number;
+        authorId: number;        
     }[];
 }
