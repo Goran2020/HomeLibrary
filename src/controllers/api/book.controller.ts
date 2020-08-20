@@ -176,8 +176,8 @@ export class BookController {
             return new ApiResponse('error', -7005, 'Bad file content type!');
         }
 
-        await this.createThumb(photo);
-        await this.createSmall(photo);
+        await this.createResizedImage(photo, StorageConfig.photo.resize.thumb);
+        await this.createResizedImage(photo, StorageConfig.photo.resize.small);
 
         const newPhoto: Photo = new Photo();        
         newPhoto.bookId = bookId;       
@@ -193,14 +193,7 @@ export class BookController {
         return savedPhoto;
     }
 
-    async createThumb(photo) {
-        await this.createResizedImage(photo, StorageConfig.photo.resize.thumb)
-    }
-
-    async createSmall(photo) {
-        await this.createResizedImage(photo, StorageConfig.photo.resize.small)
-    }
-
+        
     async createResizedImage(photo, resizeSettings) {
         const originalFilePath = photo.path;
         const fileName = photo.filename;

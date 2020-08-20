@@ -126,6 +126,7 @@ export class BookService extends TypeOrmCrudService<Book> {
 
         builder.leftJoinAndSelect("book.bookAuthors", "bba");
         builder.innerJoinAndSelect('book.authors', "ba");
+        builder.leftJoinAndSelect("book.photos", "bp");
         builder.where('book.categoryId = :id', { id: data.categoryId });
         
         if(data.title) {
