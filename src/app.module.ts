@@ -26,6 +26,7 @@ import { PublisherService } from './services/publisher/publisher.service';
 import { PublisherController } from './controllers/api/publisher.controller';
 import { LocationrController } from './controllers/api/location.controller';
 import { LocationService } from './services/location/location.service';
+import { VisitorControler } from './controllers/api/visitor.controller';
 
 @Module({
   imports: [
@@ -69,7 +70,8 @@ import { LocationService } from './services/location/location.service';
     BookController,
     AuthController,
     PublisherController,
-    LocationrController
+    LocationrController,
+    VisitorControler,
   ],
   providers: [
     UserService,

@@ -58,14 +58,14 @@ import { BookSearchDto } from "src/dtos/book/book.search.dto";
         ],
         getOneBase: {
             decorators: [
-                UseGuards(RoleCheckerGuard),
-                AllowToRoles('user')
+                //UseGuards(RoleCheckerGuard),
+                //AllowToRoles('user')
             ]
         },
         getManyBase: {
             decorators: [
-                UseGuards(RoleCheckerGuard),
-                AllowToRoles('user')
+                //UseGuards(RoleCheckerGuard),
+                //AllowToRoles('user')
             ]
         }
     }

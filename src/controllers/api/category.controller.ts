@@ -46,14 +46,14 @@ import { AllowToRoles } from "src/misc/allow.to.roles.descriptor";
         },
         getOneBase: {
             decorators: [
-                UseGuards(RoleCheckerGuard),
-                AllowToRoles('user'),
+                //UseGuards(RoleCheckerGuard),
+                //AllowToRoles('user'),
             ]
         },
         getManyBase: {
             decorators: [
-                UseGuards(RoleCheckerGuard),
-                AllowToRoles('user'),
+                //UseGuards(RoleCheckerGuard),
+                //AllowToRoles('user'),
             ]
         },
         updateOneBase: {

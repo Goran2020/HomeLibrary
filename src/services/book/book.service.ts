@@ -9,6 +9,7 @@ import { BookAuthor } from "src/entities/book-author.entity";
 import { EditBookDto } from "src/dtos/book/edit.book.dto";
 import { BookSearchDto } from "src/dtos/book/book.search.dto";
 import { Author } from "src/entities/author.entity";
+import { BookDto } from "src/dtos/book/book.dto";
 
 
 
@@ -26,6 +27,24 @@ export class BookService extends TypeOrmCrudService<Book> {
         private readonly autor: Repository<Author>
     ) {
         super(book);
+    }
+
+    async getBook(id: number): Promise<Book | ApiResponse> {
+        const book = await this.book.findOne(id , {
+            relations: [
+                "authors",
+                "photos",
+                "publisher",
+                "location",
+                "category"
+            ]
+        });
+
+        if (!book) {
+            return new ApiResponse('error', -1001, 'The book doesnt exists.');
+        }
+
+        return book;
     }
 
     async createBook(data: AddBookDto): Promise<Book | ApiResponse> {
@@ -175,17 +194,6 @@ export class BookService extends TypeOrmCrudService<Book> {
         }
 
         return books;
-/*
-        return await this.book.find({
-            where: {
-                bookId: In(itemsIds)
-            },
-            relations: [
-                "photos",
-                "authors",
-                "category"
-            ]
-        });*/
     }
     /*
     async getAllBookIds(id: number): Promise<number[]> {

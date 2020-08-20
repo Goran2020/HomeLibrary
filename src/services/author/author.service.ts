@@ -31,4 +31,14 @@ export class AuthorService extends TypeOrmCrudService<Author> {
 
         return author;
     }
+
+    async getAuthor(id: number) {
+        const author = await this.author.findOne(id);
+
+        if (!author) {
+            return new ApiResponse('error', -2001, 'The Author doesnt exist.');
+        }
+
+        return author;
+    }
 }

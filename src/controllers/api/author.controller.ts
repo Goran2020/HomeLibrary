@@ -53,14 +53,14 @@ import { ApiResponse } from "src/misc/api.response";
         },
         getOneBase: {
             decorators: [
-                UseGuards(RoleCheckerGuard),
-                AllowToRoles('user'),
+                //UseGuards(RoleCheckerGuard),
+                //AllowToRoles('user'),
             ]
         },
         getManyBase: {
             decorators: [
-                UseGuards(RoleCheckerGuard),
-                AllowToRoles('user'),
+                //UseGuards(RoleCheckerGuard),
+                //AllowToRoles('user'),
             ]
         },
         updateOneBase: {
