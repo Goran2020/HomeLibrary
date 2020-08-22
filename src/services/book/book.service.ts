@@ -162,10 +162,10 @@ export class BookService extends TypeOrmCrudService<Book> {
         }
 
         if (data.publicationYear && typeof data.publicationYear === 'number') {
-            builder.andWhere('book.publicationYear = :yearMax', { yearMax: data.publicationYear })
+            builder.andWhere('book.publicationYear = :year', { year: data.publicationYear })
         }
 
-        if (data.authorId && typeof data.authorId === 'number' ) {
+        if (data.authorId && typeof data.authorId === 'number' && data.authorId !== 19) {
             
                 builder.andWhere('bba.author_id = :aId', { aId: data.authorId });
             

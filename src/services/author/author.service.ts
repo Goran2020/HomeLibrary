@@ -41,4 +41,14 @@ export class AuthorService extends TypeOrmCrudService<Author> {
 
         return author;
     }
+
+    async getAuthors(): Promise<Author[] | ApiResponse> {
+        const authors: Author[] = await this.author.find();
+
+        if (!authors) {
+            return new ApiResponse('error', -2001, 'The Author doesnt exist.');
+        }
+
+        return authors;
+    }
 }

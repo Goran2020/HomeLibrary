@@ -44,5 +44,10 @@ export class VisitorControler {
     async getAuthorByForenameAndSurname(@Body() data: SingleAuthorDto): Promise<Author | ApiResponse> {
         return this.authorService.getOneAuthor(data);
     }
+
+    @Get('authors')
+    getAuthors(): Promise<Author[] | ApiResponse> {
+        return this.authorService.getAuthors();
+    }
     
 }
