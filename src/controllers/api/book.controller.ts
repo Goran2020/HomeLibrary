@@ -179,7 +179,7 @@ export class BookController {
         await this.createResizedImage(photo, StorageConfig.photo.resize.thumb);
         await this.createResizedImage(photo, StorageConfig.photo.resize.small);
 
-        const newPhoto: Photo = new Photo();        
+        const newPhoto: AddPhotoDto = new AddPhotoDto();        
         newPhoto.bookId = bookId;       
         newPhoto.imagePath = photo.filename;
         newPhoto.cover = data.cover;

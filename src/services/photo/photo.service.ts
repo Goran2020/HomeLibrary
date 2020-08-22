@@ -3,6 +3,7 @@ import { TypeOrmCrudService } from '@nestjsx/crud-typeorm';
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { Photo } from "src/entities/photo.entity";
+import { AddPhotoDto } from "src/dtos/photo/add.photo.dto";
 
 @Injectable()
 export class PhotoService extends TypeOrmCrudService<Photo> {
@@ -13,7 +14,7 @@ export class PhotoService extends TypeOrmCrudService<Photo> {
         super(photo);
     }
 
-    async addPhoto(newPhoto: Photo): Promise<Photo> {
+    async addPhoto(newPhoto: AddPhotoDto): Promise<Photo> {
         return await this.photo.save(newPhoto);
     }
 
