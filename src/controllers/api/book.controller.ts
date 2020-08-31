@@ -94,7 +94,7 @@ export class BookController {
 
 
     
-    @Post(':id/uploadPhoto')
+    @Post(':id/uploadPhoto/:cover') // ovde dodato /:cover -----------add------------
     @UseGuards(RoleCheckerGuard)    
     @AllowToRoles('user')
     @UseInterceptors(
@@ -150,7 +150,7 @@ export class BookController {
         @Param('id') bookId: number, 
         @UploadedFile() photo, 
         @Req() req,
-        @Body() data: AddPhotoDto,
+        @Param('cover') cover: string,       
         
     ): Promise<Photo | ApiResponse> {
                                                                   // include-ujemo request
@@ -182,7 +182,12 @@ export class BookController {
         const newPhoto: AddPhotoDto = new AddPhotoDto();        
         newPhoto.bookId = bookId;       
         newPhoto.imagePath = photo.filename;
-        newPhoto.cover = data.cover;
+        if (cover === 'back') {
+            newPhoto.cover = "back";
+        } else {
+            newPhoto.cover = "front";
+        }
+        //console.log(req);
         //console.log(newPhoto);
         const savedPhoto = await this.photoService.addPhoto(newPhoto);
 
@@ -192,7 +197,7 @@ export class BookController {
 
         return savedPhoto;
     }
-
+    
         
     async createResizedImage(photo, resizeSettings) {
         const originalFilePath = photo.path;
