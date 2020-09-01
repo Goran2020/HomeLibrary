@@ -9,6 +9,7 @@ import {
 } from "typeorm";
 import { BookAuthor } from "./book-author.entity";
 import { Book } from "./book.entity";
+import * as Validator from 'class-validator';
 
 @Index("uq_author_forename_surname", ["forename", "surname"], { unique: true })
 @Entity("author")
@@ -21,6 +22,9 @@ export class Author {
     name: "forename", 
     length: 50
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(2, 50)
   forename: string;
 
   @Column({ 
@@ -28,6 +32,9 @@ export class Author {
     name: "surname", 
     length: 50
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(2, 50)
   surname: string;
 
   @OneToMany(

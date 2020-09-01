@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn
 } from "typeorm";
 import { Book } from "./book.entity";
+import * as Validator from 'class-validator';
 
 @Index("uq_publisher_name", ["name"], { unique: true })
 @Entity("publisher")
@@ -19,6 +20,9 @@ export class Publisher {
     unique: true,
     length: 50
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(1, 50)
   name: string;
 
   @Column({ 
@@ -26,6 +30,9 @@ export class Publisher {
     name: "city", 
     length: 50
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(1, 50)
   city: string;
 
   @Column({ 
@@ -33,6 +40,9 @@ export class Publisher {
     name: "state", 
     length: 64
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(1, 50)
   state: string;
 
   @Column({
@@ -40,6 +50,7 @@ export class Publisher {
     name: "founded_in",
     unsigned: true
   })
+  @Validator.IsNotEmpty()  
   foundedIn: number;
 
   @OneToMany(

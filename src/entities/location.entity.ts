@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn
 } from "typeorm";
 import { Book } from "./book.entity";
+import * as Validator from 'class-validator';
 
 @Index("uq_location_room_shelf", ["room", "shelf"], { unique: true })
 @Entity("location", { schema: "library" })
@@ -18,6 +19,9 @@ export class Location {
     name: "room", 
     length: 30
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(2, 30)
   room: string;
 
   @Column({ 
@@ -25,6 +29,9 @@ export class Location {
     name: "shelf", 
     length: 20
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(2, 20)
   shelf: string;
 
   @OneToMany(

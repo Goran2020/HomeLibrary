@@ -15,6 +15,7 @@ import { Publisher } from "./publisher.entity";
 import { BookAuthor } from "./book-author.entity";
 import { Photo } from "./photo.entity";
 import { Author } from "./author.entity";
+import * as Validator from 'class-validator';
 
 @Index("uk_book_isbn", ["isbn"], { unique: true })
 @Index("uq_book_catalog_number", ["catalogNumber"], { unique: true })
@@ -31,6 +32,9 @@ export class Book {
     name: "title", 
     length: 64
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(2, 64)
   title: string;
 
   @Column({
@@ -38,13 +42,17 @@ export class Book {
     name: "original_title",
     length: 64
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(2, 64)
   originalTitle: string;
 
   @Column({
     type: "smallint", 
     name: "publication_year",
     unsigned: true
-  })
+  })  
+  @Validator.IsNotEmpty()  
   publicationYear: number;
 
   @Column({ 
@@ -52,6 +60,7 @@ export class Book {
     name: "pages", 
     unsigned: true
   })
+  @Validator.IsNotEmpty()   
   pages: number;
 
   @Column({
@@ -60,6 +69,9 @@ export class Book {
     unique: true,
     length: 13
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(13)
   isbn: string;
 
   @Column({ 
@@ -67,6 +79,9 @@ export class Book {
     name: "language", 
     length: 30
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(2, 30)
   language: string;
 
   @Column({
@@ -75,13 +90,16 @@ export class Book {
     unique: true,
     length: 10
   })
+  @Validator.IsNotEmpty()
+  @Validator.IsString()
+  @Validator.Length(1, 10)
   catalogNumber: string;
 
   @Column({ 
     type: "smallint", 
     name: "is_visible", 
     unsigned: true
-  })
+  })  
   isVisible: number;
 
   @Column({ 
