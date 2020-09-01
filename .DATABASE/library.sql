@@ -15,28 +15,26 @@ CREATE TABLE IF NOT EXISTS `author` (
   `surname` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`author_id`),
   UNIQUE KEY `uq_author_forename_surname` (`forename`,`surname`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
 DELETE FROM `author`;
 /*!40000 ALTER TABLE `author` DISABLE KEYS */;
 INSERT INTO `author` (`author_id`, `forename`, `surname`) VALUES
 	(6, 'Aleksandar', 'Jevremović'),
-	(18, 'Branko', 'Ćopić'),
 	(10, 'Declan', 'Konner'),
 	(9, 'Dejan', 'Živković'),
 	(1, 'Dobrica', 'Ćosić'),
-	(22, 'Ivo', 'Andrić'),
+	(24, 'Goran', 'Šimić'),
 	(20, 'Lauren', 'Lynne'),
-	(21, 'Mark', 'Tven'),
+	(25, 'Ljubiša', 'Lazarević'),
+	(26, 'Marko', 'Šarac'),
 	(7, 'Milan', 'Tair'),
 	(5, 'Mladen ', 'Veinović'),
-	(3, 'Momo', 'Kapor'),
 	(19, 'Pick', 'an author...'),
+	(23, 'Ratko', 'Marković'),
 	(16, 'Saša', 'Adamović'),
 	(8, 'Sigmund', 'Frojd'),
-	(17, 'Stevan', 'Sremac'),
-	(4, 'Tabere', 'Mafi'),
-	(2, 'Vuk', 'Drašković');
+	(4, 'Tabere', 'Mafi');
 /*!40000 ALTER TABLE `author` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `book`;
@@ -62,17 +60,22 @@ CREATE TABLE IF NOT EXISTS `book` (
   CONSTRAINT `fk_book_category_id` FOREIGN KEY (`category_id`) REFERENCES `category` (`category_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_book_location_id` FOREIGN KEY (`location_id`) REFERENCES `location` (`location_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_book_publisher_id` FOREIGN KEY (`publisher_id`) REFERENCES `publisher` (`publisher_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 DELETE FROM `book`;
 /*!40000 ALTER TABLE `book` DISABLE KEYS */;
 INSERT INTO `book` (`book_id`, `title`, `original_title`, `publication_year`, `pages`, `isbn`, `language`, `catalog_number`, `is_visible`, `category_id`, `publisher_id`, `location_id`) VALUES
-	(5, 'Baze podataka', 'Baze podataka', 2016, 186, '250000425111', 'srpski', '2', 1, 8, 1, 1),
+	(5, 'Baze podataka', 'Baze podataka', 2016, 186, '250000425111', 'srpski', '2', 1, 8, 3, 1),
 	(12, 'Internet tehnologije', 'Internet tehnologije', 2017, 161, '2098978945612', 'srpski', '1565171228', 1, 8, 3, 3),
 	(14, 'Kriptologija 1', 'Kriptologija 1', 2018, 245, '5214216597845', 'sroski', '1286171228', 1, 8, 3, 4),
 	(15, 'Osnove java programiranja', 'Osnove java programiranja', 2009, 268, '5647841247357', 'srpski', '840171632', 0, 8, 3, 5),
 	(24, 'Računarske mreže', 'Računarske mreže', 2009, 288, '5747896213541', 'srpski', '587171632', 1, 8, 1, 1),
-	(33, 'Percepcije', 'Perceptions', 2009, 161, '5214216597747', 'srpski', '279171141', 1, 9, 1, 1);
+	(33, 'Percepcije', 'Perceptions', 2009, 161, '5214216597747', 'srpski', '279171141', 1, 9, 1, 1),
+	(35, 'Upravno pravo', 'Upravno pravo', 2002, 616, '8674630464259', 'srpski', '1632181211', 1, 23, 1, 1),
+	(36, 'Ustavno pravo i političke institucije', 'Ustavno pravo i političke institucije', 2000, 683, '8679540464254', 'srpski', '866181211', 1, 23, 6, 5),
+	(37, 'Kompletan uvod u psihoanalizu', 'Vorlesungen zur Einführung in die Psychoanalyse', 1999, 486, '8674630001254', 'srpski', '577181211', 1, 6, 6, 1),
+	(38, 'Krivično pravo', 'Krivično pravo', 2000, 324, '8512470464254', 'srpski', '1054181211', 1, 23, 8, 8),
+	(39, 'Zaštita u računarskim mrežama', 'Zaštita u računarskim mrežama', 2015, 153, '8574851547325', 'srpski', '83181211', 1, 8, 3, 4);
 /*!40000 ALTER TABLE `book` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `book_author`;
@@ -85,14 +88,15 @@ CREATE TABLE IF NOT EXISTS `book_author` (
   KEY `fk_book_author_author_id` (`author_id`),
   CONSTRAINT `fk_book_author_author_id` FOREIGN KEY (`author_id`) REFERENCES `author` (`author_id`) ON UPDATE CASCADE,
   CONSTRAINT `fk_book_author_book_id` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=72 DEFAULT CHARSET=utf8;
 
 DELETE FROM `book_author`;
 /*!40000 ALTER TABLE `book_author` DISABLE KEYS */;
 INSERT INTO `book_author` (`book_author_id`, `book_id`, `author_id`) VALUES
-	(29, 5, 5),
-	(27, 5, 6),
-	(28, 5, 7),
+	(66, 5, 5),
+	(63, 5, 6),
+	(65, 5, 7),
+	(64, 5, 24),
 	(12, 12, 5),
 	(11, 12, 6),
 	(15, 14, 5),
@@ -100,7 +104,14 @@ INSERT INTO `book_author` (`book_author_id`, `book_id`, `author_id`) VALUES
 	(30, 15, 9),
 	(55, 24, 5),
 	(54, 24, 6),
-	(52, 33, 20);
+	(52, 33, 20),
+	(68, 35, 23),
+	(58, 36, 23),
+	(59, 37, 8),
+	(67, 38, 25),
+	(71, 39, 5),
+	(69, 39, 24),
+	(70, 39, 26);
 /*!40000 ALTER TABLE `book_author` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `category`;
@@ -109,24 +120,17 @@ CREATE TABLE IF NOT EXISTS `category` (
   `name` varchar(50) NOT NULL DEFAULT '0',
   PRIMARY KEY (`category_id`),
   UNIQUE KEY `uq_category_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 DELETE FROM `category`;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
 INSERT INTO `category` (`category_id`, `name`) VALUES
 	(1, 'Dečija književnost'),
 	(9, 'Fantastika'),
-	(2, 'Filozofija'),
-	(22, 'Fizika'),
 	(8, 'Informatika'),
-	(3, 'Istorija'),
-	(21, 'Klasična Muzika'),
-	(4, 'Medicina'),
-	(5, 'Politika'),
+	(23, 'Pravo'),
 	(6, 'Psihologija'),
-	(7, 'Rečnik'),
-	(11, 'Ribolov'),
-	(10, 'Sport');
+	(7, 'Rečnik');
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `location`;
@@ -148,7 +152,7 @@ INSERT INTO `location` (`location_id`, `room`, `shelf`) VALUES
 	(5, 'Kancelarija', 'KC02'),
 	(8, 'Kancelarija', 'KC03'),
 	(7, 'Kancelarija', 'KC04'),
-	(9, 'Kancelarija', 'KC12');
+	(9, 'Kancelarija', 'KC10');
 /*!40000 ALTER TABLE `location` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `photo`;
@@ -161,18 +165,33 @@ CREATE TABLE IF NOT EXISTS `photo` (
   UNIQUE KEY `uq_photo_book_id_cover` (`book_id`,`cover`),
   UNIQUE KEY `uq_image_path` (`image_path`),
   CONSTRAINT `fk_photo_book_id` FOREIGN KEY (`book_id`) REFERENCES `book` (`book_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=75 DEFAULT CHARSET=utf8;
 
 DELETE FROM `photo`;
 /*!40000 ALTER TABLE `photo` DISABLE KEYS */;
 INSERT INTO `photo` (`photo_id`, `book_id`, `cover`, `image_path`) VALUES
-	(4, 5, 'front', '2020814-4124214580-baze_podataka.jpg'),
-	(8, 12, 'front', '2020819-8976005343-us-internet-tehnologije-1-638.jpg'),
-	(9, 14, 'front', '2020819-4543774633-KRIPTOLOGIJA-1-NOVO-_slika_O_84613637.jpg'),
-	(10, 15, 'front', '2020822-4261374020-osnove-java-programiranja-singipedia.jpg'),
-	(21, 24, 'front', '2020822-6260058548-racunarske_mreze.jpg'),
-	(37, 33, 'front', '2020831-4183449414-perceptions_front.png'),
-	(43, 33, 'back', '202091-0438636464-perception_back.png');
+	(53, 14, 'front', '202091-9714843630-Kripto1_front.jpg'),
+	(54, 14, 'back', '202091-4796690726-Kripto1_back.jpg'),
+	(55, 12, 'front', '202091-4448538464-Internet_Tehnologije_front.jpg'),
+	(56, 12, 'back', '202091-3746255619-Internet_Tehnologije_back.jpg'),
+	(57, 15, 'front', '202091-3933367465-Osnove_Java_front.jpg'),
+	(58, 15, 'back', '202091-6344416222-Internet_Tehnologije_back.jpg'),
+	(59, 24, 'front', '202091-6852807226-RM_front.jpg'),
+	(60, 24, 'back', '202091-1109433826-RM_back.jpg'),
+	(61, 33, 'front', '202091-2878654054-perceptions_front.png'),
+	(62, 33, 'back', '202091-8566834156-perception_back.png'),
+	(63, 35, 'front', '202091-1457694178-Upravno_front.jpg'),
+	(64, 36, 'front', '202091-1714767277-UPiPI_front.jpg'),
+	(65, 35, 'back', '202091-1183261375-Upravno_back.jpg'),
+	(66, 36, 'back', '202091-5681139315-UPiPI_back.jpg'),
+	(67, 37, 'front', '202091-3888189507-Uvod_u_psihoanalizu_front.jpg'),
+	(68, 37, 'back', '202091-8229455331-Uvod_u_psihoanalizu_back.jpg'),
+	(69, 5, 'front', '202091-8231434176-BP_cover_2018.png'),
+	(70, 5, 'back', '202091-5661746174-BP_back_2018.png'),
+	(71, 38, 'front', '202091-4082879135-KP_front.jpg'),
+	(72, 38, 'back', '202091-4040198297-KP_back.jpg'),
+	(73, 39, 'front', '202091-9164328611-ZRM_front.jpg'),
+	(74, 39, 'back', '202091-7380618743-ZRM_back.jpg');
 /*!40000 ALTER TABLE `photo` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `publisher`;
@@ -184,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `publisher` (
   `founded_in` smallint(4) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`publisher_id`),
   UNIQUE KEY `uq_publisher_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 DELETE FROM `publisher`;
 /*!40000 ALTER TABLE `publisher` DISABLE KEYS */;
@@ -195,7 +214,8 @@ INSERT INTO `publisher` (`publisher_id`, `name`, `city`, `state`, `founded_in`) 
 	(4, 'Harvard University Press', 'Cambridge, MA', 'SAD', 1977),
 	(5, 'Nolit', 'Beograd', 'Srbija', 1976),
 	(6, 'BIGZ', 'Beograd', 'Srbija', 1935),
-	(7, 'Naučna misao', 'Beograd', 'Srbija', 1989);
+	(7, 'Naučna misao', 'Beograd', 'Srbija', 1989),
+	(8, 'Savremena administracija', 'Beograd', 'Srbija', 1977);
 /*!40000 ALTER TABLE `publisher` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `user`;
@@ -205,7 +225,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password_hash` varchar(128) NOT NULL DEFAULT '0',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `uq_user_username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
 DELETE FROM `user`;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
@@ -215,7 +235,8 @@ INSERT INTO `user` (`user_id`, `username`, `password_hash`) VALUES
 	(3, 'matilda', '92ED1F0DFA10AD6B5A81D10560711B8D0F5CF5582221C7C14C7CBD594958C730B46A491979AA6F79DE57D53237FF363D88464D141071CA52AF31C63382F6C7A6'),
 	(6, 'goran', 'C8A067B40F5F9AF4096245F94FD5226D4DA5389DC633377E7F15E854403128FAD8885BABACD35AECD11BE1D1F39A1155495BD786FDC7802AE3D02DFEA449C7F4'),
 	(7, 'admin', 'C7AD44CBAD762A5DA0A452F9E854FDC1E0E7A52A38015F23F3EAB1D80B931DD472634DFAC71CD34EBC35D16AB7FB8A90C81F975113D6C7538DC69DD8DE9077EC'),
-	(9, 'boban', 'C2E84F054C7F95498FF5A98A0908A0808D6AE9983642C9D27453113970EBACC813735E51C1E7BF20D9BF8AD7691D9BD7EB6D229BA030749A6C60D1366FB84BB7');
+	(9, 'boban', 'C2E84F054C7F95498FF5A98A0908A0808D6AE9983642C9D27453113970EBACC813735E51C1E7BF20D9BF8AD7691D9BD7EB6D229BA030749A6C60D1366FB84BB7'),
+	(25, 'Korisnik', '396EBBEC80CE4AE542245AE0312111FE054A3FA8B99B33384D8E368BA943DCD41FE78A02AF26FF984D1C9CD9E6CCCA57304DF9CA6C5F2F7E3D08B58FE2BA7BFE');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
 DROP TABLE IF EXISTS `user_token`;
@@ -229,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `user_token` (
   PRIMARY KEY (`user_token_id`),
   KEY `fl_user_token_uder_id` (`user_id`),
   CONSTRAINT `fl_user_token_uder_id` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=122 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=125 DEFAULT CHARSET=utf8;
 
 DELETE FROM `user_token`;
 /*!40000 ALTER TABLE `user_token` DISABLE KEYS */;
@@ -348,7 +369,10 @@ INSERT INTO `user_token` (`user_token_id`, `user_id`, `created_at`, `token`, `ex
 	(118, 9, '2020-09-01 02:47:09', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMTU5OTYyOS45NjksImlwIjoiOjoxIiwidWEiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjgzIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE1OTg5MjEyMjl9.T9JG7f50W1aSLIZrLcdKvGmo02pztMhDyxIeNROH3GQ', '2020-10-02 00:47:09', 1),
 	(119, 9, '2020-09-01 03:37:39', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMTYwMjY1OS4yNjUsImlwIjoiOjoxIiwidWEiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjgzIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE1OTg5MjQyNTl9._xNvCCXFv652FOI3G-tOCbDol8oNwWwtNLeNq2I43YI', '2020-10-02 01:37:39', 1),
 	(120, 9, '2020-09-01 03:55:05', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMTYwMzcwNS4zMjYsImlwIjoiOjoxIiwidWEiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjgzIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE1OTg5MjUzMDV9.fhiO3ehztSpbGWQkrXAzKd81aYhYKj2Cq0rGrhQ7QS8', '2020-10-02 01:55:05', 1),
-	(121, 9, '2020-09-01 03:56:56', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMTYwMzgxNi42MjksImlwIjoiOjoxIiwidWEiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjgzIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE1OTg5MjU0MTZ9.hqrNoULXkqR-hHRfKBx2s7F-7XAM6FPlnF1JtwNH68E', '2020-10-02 01:56:56', 1);
+	(121, 9, '2020-09-01 03:56:56', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMTYwMzgxNi42MjksImlwIjoiOjoxIiwidWEiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjgzIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE1OTg5MjU0MTZ9.hqrNoULXkqR-hHRfKBx2s7F-7XAM6FPlnF1JtwNH68E', '2020-10-02 01:56:56', 1),
+	(122, 9, '2020-09-01 17:32:28', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMTY1Mjc0OC41NTIsImlwIjoiOjoxIiwidWEiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjgzIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE1OTg5NzQzNDh9.PQgnwgIM4XF8sRPo-4gktQ4g_WwGNGfNIjXqgW8bHV8', '2020-10-02 15:32:28', 1),
+	(123, 9, '2020-09-01 17:58:40', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMTY1NDMyMC4wNzEsImlwIjoiOjoxIiwidWEiOiJNb3ppbGxhLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0KSBBcHBsZVdlYktpdC81MzcuMzYgKEtIVE1MLCBsaWtlIEdlY2tvKSBDaHJvbWUvODUuMC40MTgzLjgzIFNhZmFyaS81MzcuMzYiLCJpYXQiOjE1OTg5NzU5MjB9.czWTc8oroZqZ6hRBMlDzgLvXTGa5NP0PKw_q1D8Zcys', '2020-10-02 15:58:40', 1),
+	(124, 25, '2020-09-01 19:45:22', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6MjUsInVzZXJuYW1lIjoiS29yaXNuaWsiLCJleHAiOjE2MDE2NjA3MjIuMDI4LCJpcCI6Ijo6MSIsInVhIjoiTW96aWxsYS81LjAgKFdpbmRvd3MgTlQgMTAuMDsgV2luNjQ7IHg2NCkgQXBwbGVXZWJLaXQvNTM3LjM2IChLSFRNTCwgbGlrZSBHZWNrbykgQ2hyb21lLzg0LjAuNDE0Ny4xMjUgU2FmYXJpLzUzNy4zNiBPUFIvNzAuMC4zNzI4LjEzMyIsImlhdCI6MTU5ODk4MjMyMn0.2YisZPjc0ne6k74_XBq30l3_r1z6-OwpD-sFiPye8rs', '2020-10-02 17:45:22', 1);
 /*!40000 ALTER TABLE `user_token` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

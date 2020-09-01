@@ -24,7 +24,8 @@ Neophodno je napisati prateću projektnu dokumentaciju o izradi aplikacije koja 
 
 Izrada projekta mora da bude sprovođena korišćenjem alata za verziranje koda Git, a kompletan kôd aplikacije bude dostupan na javnom Git repozitorijumu, npr. na besplatnim GitHub ili Bitbucket servisima. Ne može ceo projekat da bude otpremljen u samo nekoliko masovnih Git commit-a, već mora da bude pokazano da je projekat realizovan u kontinuitetu, da su korišćene grane (branching), da je bilo paralelnog rada u više grana koje su spojene (merging) sa ili bez konflikata (conflict resolution).
 
-Autor teme za projektni zadatak: [Milan Tair] (https://rs.linkedin.com/in/milantex)
+Autor teme za projektni zadatak: [Milan Tair](https://rs.linkedin.com/in/milantex)
+
 Ova tema je rezervisana od strane studenata sa brojevima indeksâ:
 •	2016202154 (primarno odabrao/la)
 

@@ -175,11 +175,15 @@ export class BookService extends TypeOrmCrudService<Book> {
         let orderBy = 'book.title';
         let orderDirection: 'ASC' | 'DESC' = 'ASC';
 
-        if (data.keywords && data.orderBy) {
+        if (data.orderBy) {
             orderBy = data.orderBy;
+
+            if (orderBy === 'year') {
+                orderBy = 'book.publicationYear';
+            }
         }
 
-        if (data.keywords && data.orderDirection) {
+        if (data.orderDirection) {
             orderDirection = data.orderDirection;
         }
 

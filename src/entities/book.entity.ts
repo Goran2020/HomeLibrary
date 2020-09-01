@@ -34,7 +34,7 @@ export class Book {
   })
   @Validator.IsNotEmpty()
   @Validator.IsString()
-  @Validator.Length(2, 64)
+  @Validator.Length(2, 64) 
   title: string;
 
   @Column({

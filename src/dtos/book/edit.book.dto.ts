@@ -11,10 +11,10 @@ export class EditBookDto {
     @Validator.Length(2, 64)
     originalTitle: string;
 
-    @Validator.IsNotEmpty()
+    
     publicationYear: number;
 
-    @Validator.IsNotEmpty()
+    
     pages: number;
 
     @Validator.IsNotEmpty()
