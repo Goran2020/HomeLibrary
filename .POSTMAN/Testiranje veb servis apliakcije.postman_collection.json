@@ -1,0 +1,3650 @@
+{
+	"info": {
+		"_postman_id": "23c3617c-b1e8-4a5c-9f88-dab3649399c6",
+		"name": "Testiranje veb servis apliakcije",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get All Users (empty table user)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users (empty table user)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "76"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4c-8c0xckMS0OUB3vXt+N0FAKhpKkc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 01:27:33 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\",\n    \"statusCode\": -8001,\n    \"message\": \"There is no users in database\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Users (invalid token)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users (invalid token)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 13:28:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Users (valid token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Users (valid token)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"user"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "445"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1bd-/oNMAZE07or88vXaPRsvb/yxuVQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 13:30:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"userId\": 1,\n        \"username\": \"alisa\",\n        \"passwordHash\": \"5A89D4BB1073097D3B1A4934DF33E434B92ADA515DE9A5410762C03498E93447C996DD3085E95ED0521BB5C8133CC8BFCDCFBD8E07C1D811F8C5C1175B4529CA\"\n    },\n    {\n        \"userId\": 2,\n        \"username\": \"nimiko\",\n        \"passwordHash\": \"kjhfku29z92babnmyeg82738gkjjbuz9238\"\n    },\n    {\n        \"userId\": 3,\n        \"username\": \"matilda\",\n        \"passwordHash\": \"2DCBB586BCD2D3BA8A3AA4A52FBEB34D53FEE06B7507269B4662108720AC3146D44576573329C769109373A4288DACBFF064568423EAC4E9FBC54DF07A88EE2E\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Add a Single User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"matilda\",\r\n    \"password\": \"n3r4zumn1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a Single User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"matilda\",\r\n    \"password\": \"n3r4zumn1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/user/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "179"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b3-S7HetoKIt8KmeVmAdvtlSPyHkio\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 02:09:55 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"username\": \"matilda\",\n    \"passwordHash\": \"2DCBB586BCD2D3BA8A3AA4A52FBEB34D53FEE06B7507269B4662108720AC3146D44576573329C769109373A4288DACBFF064568423EAC4E9FBC54DF07A88EE2E\",\n    \"userId\": 3\n}"
+						}
+					]
+				},
+				{
+					"name": "Add a Single User (existing username)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"matilda\",\r\n    \"password\": \"n3r4zumn1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/user/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a Single User (existing username)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"matilda\",\r\n    \"password\": \"n3r4zumn1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/user/register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"user",
+										"register"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "75"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4b-vD2ybvDfjzkcMPTz6y+RyoYoiFg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 02:12:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -8003,\n    \"message\": \"Account cannot be created\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User Password Change",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjYsInVzZXJuYW1lIjoiZ29yYW4iLCJleHAiOjE1OTgzNDEwOTUuOTMyLCJpcCI6Ijo6MSIsInVhIjoiUG9zdG1hblJ1bnRpbWUvNy4yNi4zIiwiaWF0IjoxNTk3MTMxNDk1fQ.MYxmHeRpMsSh8tHIfF5f0znBJQ35E5oxjYrtLfNL4u8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODM0MDkyNi4wMTMsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTcxMzEzMjZ9.46e681RD0r3-VbH5KkcCSZnIXBX1iDJaoCJDTmC5Jrw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"wonderland\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Password Change",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"15kr15t4l154n1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/user/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"1"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "177"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"b1-ZiKQy+mtYbUirJt2QNXpFmJAyEk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 02:37:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": 1,\n    \"username\": \"alisa\",\n    \"passwordHash\": \"5A89D4BB1073097D3B1A4934DF33E434B92ADA515DE9A5410762C03498E93447C996DD3085E95ED0521BB5C8133CC8BFCDCFBD8E07C1D811F8C5C1175B4529CA\"\n}"
+						}
+					]
+				},
+				{
+					"name": "User Password Change (non-existing user)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"15kr15t4l154n1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/user/321",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"user",
+								"321"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "User Password Change (non-existing user)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"password\": \"15kr15t4l154n1\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/user/321",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"user",
+										"321"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "73"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"49-IIs5RxHZHbpSfXsHYtclDFfpV9U\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 02:39:47 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -8004,\n    \"message\": \"This user doesnt exists\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Create a Book",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"title\": \"Internet tehnologije\",\r\n    \"originalTitle\": \"Internet tehnologije\",\r\n    \"publicationYear\": 2017,\r\n    \"pages\": 161,\r\n    \"isbn\": \"2098978945612\",\r\n    \"language\": \"srpski\",\r\n    \"categoryId\": 8,\r\n    \"publisherId\": 3,\r\n    \"locationId\": 3,\r\n    \"authors\": [\r\n        {\r\n            \"authorId\": 6\r\n            \r\n        },\r\n        {\r\n            \"authorId\": 5\r\n            \r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/book/createBook",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book",
+								"createBook"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create a Book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"title\": \"Internet tehnologije\",\r\n    \"originalTitle\": \"Internet tehnologije\",\r\n    \"publicationYear\": 2017,\r\n    \"pages\": 161,\r\n    \"isbn\": \"2098978945612\",\r\n    \"language\": \"srpski\",\r\n    \"categoryId\": 8,\r\n    \"publisherId\": 3,\r\n    \"locationId\": 3,\r\n    \"authors\": [\r\n        {\r\n            \"authorId\": 6\r\n            \r\n        },\r\n        {\r\n            \"authorId\": 5\r\n            \r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/createBook",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"createBook"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": null,
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "432"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b0-ohKSqEsVQV3OZMjmnnqDY8qWzn4\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 18 Aug 2020 07:59:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookId\": 12,\n    \"title\": \"Internet tehnologije\",\n    \"originalTitle\": \"Internet tehnologije\",\n    \"publicationYear\": 2017,\n    \"pages\": 161,\n    \"isbn\": \"2098978945612\",\n    \"language\": \"srpski\",\n    \"catalogNumber\": \"1565171228\",\n    \"isVisible\": 1,\n    \"categoryId\": 8,\n    \"publisherId\": 3,\n    \"locationId\": 3,\n    \"category\": {\n        \"categoryId\": 8,\n        \"name\": \"Informatika\"\n    },\n    \"authors\": [\n        {\n            \"authorId\": 5,\n            \"forename\": \"Mladen \",\n            \"surname\": \"Veinović\"\n        },\n        {\n            \"authorId\": 6,\n            \"forename\": \"Aleksandar\",\n            \"surname\": \"Jevremović\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Books (invalid token)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/book",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Books (invalid token)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/book",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "46"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2e-YmJGLZcbfj0S25Nb7dFgdH1kZ3M\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 12:40:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"statusCode\": 401,\n    \"message\": \"Token not found\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Books (valid token)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/book",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Books (valid token)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/book",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1972"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7b4-T3jFH1WhrBBp7vmSvE2sE5kMuUk\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 13:12:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bookId\": 1,\n        \"title\": \"Kompletan uvod u psihoanalizu\",\n        \"originalTitle\": \"Vorlesungen zur Einführung in die Psychoanalyse\",\n        \"publicationYear\": 2006,\n        \"pages\": 523,\n        \"isbn\": \"2500001201142\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"1\",\n        \"isVisible\": 1,\n        \"categoryId\": 6,\n        \"publisherId\": 2,\n        \"locationId\": 4,\n        \"authors\": [\n            {\n                \"authorId\": 8,\n                \"forename\": \"Sigmund\",\n                \"surname\": \"Frojd\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 6,\n            \"name\": \"Psihologija\"\n        }\n    },\n    {\n        \"bookId\": 5,\n        \"title\": \"Baze podataka\",\n        \"originalTitle\": \"Baze podataka\",\n        \"publicationYear\": 2016,\n        \"pages\": 186,\n        \"isbn\": \"250000425111\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 1,\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            },\n            {\n                \"authorId\": 7,\n                \"forename\": \"Milan\",\n                \"surname\": \"Tair\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    },\n    {\n        \"bookId\": 6,\n        \"title\": \"Ugrizi me\",\n        \"originalTitle\": \"Bite me\",\n        \"publicationYear\": 2003,\n        \"pages\": 231,\n        \"isbn\": \"2144121854711\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"3\",\n        \"isVisible\": 1,\n        \"categoryId\": 9,\n        \"publisherId\": 1,\n        \"locationId\": 1,\n        \"authors\": [\n            {\n                \"authorId\": 4,\n                \"forename\": \"Tahere\",\n                \"surname\": \"Mafi\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 9,\n            \"name\": \"Fantastika\"\n        }\n    },\n    {\n        \"bookId\": 7,\n        \"title\": \"Računarske mreže\",\n        \"originalTitle\": \"Računarske mreže\",\n        \"publicationYear\": 2016,\n        \"pages\": 145,\n        \"isbn\": \"2008978945612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2068\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    },\n    {\n        \"bookId\": 8,\n        \"title\": \"Osnove programiranja\",\n        \"originalTitle\": \"Osnove programiranja\",\n        \"publicationYear\": 2014,\n        \"pages\": 245,\n        \"isbn\": \"2008978112612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2020171120\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"authors\": [\n            {\n                \"authorId\": 9,\n                \"forename\": \"Dejan\",\n                \"surname\": \"Živković\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Upload Photos",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODMwMjY1NS4xNTMsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwOTMwNTV9.kBIyGGeES0OEd7OoBc9dF7jccQSzXEgdKHGHrmyHuC0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "photo",
+									"type": "file",
+									"src": "/C:/Users/Goran/Desktop/baze_podataka.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/book/5/uploadPhoto/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book",
+								"5",
+								"uploadPhoto",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Upload Photos",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODMwMjY1NS4xNTMsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwOTMwNTV9.kBIyGGeES0OEd7OoBc9dF7jccQSzXEgdKHGHrmyHuC0",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "photo",
+											"type": "file",
+											"src": "/C:/Users/Goran/Desktop/baze_podataka.jpg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/5/uploadPhoto/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"5",
+										"uploadPhoto",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5b-bicHm6eQV2TxG4G8rBuorAFGJHU\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 20:59:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookId\": 5,\n    \"imagePath\": \"2020810-5873313141-baze_podataka.jpg\",\n    \"photoId\": 1,\n    \"cover\": \"front\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a Single Book",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODMwMjY1NS4xNTMsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwOTMwNTV9.kBIyGGeES0OEd7OoBc9dF7jccQSzXEgdKHGHrmyHuC0",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/book/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a Single Book",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODMwMjY1NS4xNTMsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwOTMwNTV9.kBIyGGeES0OEd7OoBc9dF7jccQSzXEgdKHGHrmyHuC0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/book/5",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"5"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "561"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"231-VvcV58MNYM/Cm9SPgu8MDXg3wH4\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 21:08:05 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookId\": 5,\n    \"title\": \"Baze podataka\",\n    \"originalTitle\": \"Baze podataka\",\n    \"publicationYear\": 2016,\n    \"pages\": 186,\n    \"isbn\": \"250000425111\",\n    \"language\": \"srpski\",\n    \"catalogNumber\": \"2\",\n    \"isVisible\": 1,\n    \"categoryId\": 8,\n    \"publisherId\": 3,\n    \"locationId\": 1,\n    \"authors\": [\n        {\n            \"authorId\": 5,\n            \"forename\": \"Mladen \",\n            \"surname\": \"Veinović\"\n        },\n        {\n            \"authorId\": 6,\n            \"forename\": \"Aleksandar\",\n            \"surname\": \"Jevremović\"\n        },\n        {\n            \"authorId\": 7,\n            \"forename\": \"Milan\",\n            \"surname\": \"Tair\"\n        }\n    ],\n    \"category\": {\n        \"categoryId\": 8,\n        \"name\": \"Informatika\"\n    },\n    \"photos\": [\n        {\n            \"photoId\": 1,\n            \"bookId\": 5,\n            \"cover\": \"front\",\n            \"imagePath\": \"2020810-5873313141-baze_podataka.jpg\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete a Book Photo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/book/11/deletePhoto/18",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book",
+								"11",
+								"deletePhoto",
+								"18"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete a Book Photo",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/book/11/deletePhoto/18",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"11",
+										"deletePhoto",
+										"18"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-EPvOlDLL44snnM4WQSDM7EsUZSQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 03:22:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"ok\",\n    \"statusCode\": 0,\n    \"message\": \"One photo deleted!\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit a Single Book (without Author(s))",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Ugrizi me jako\",\r\n    \"originalTitle\": \"Bite me\",\r\n    \"publicationYear\": 2017,\r\n    \"pages\": 158,\r\n    \"isbn\": \"5487584512458\",    \r\n    \"language\": \"srpski\",\r\n    \"isVisible\": 1,\r\n    \"catalogNumber\": \"4578445247\",  \r\n    \"categoryId\":  9, \r\n    \"publisherId\": 1,\r\n    \"locationId\": 1,\r\n    \"authors\": null\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/book/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit a Single Book (without Author(s))",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Ugrizi me jako\",\r\n    \"originalTitle\": \"Bite me\",\r\n    \"publicationYear\": 2017,\r\n    \"pages\": 158,\r\n    \"isbn\": \"5487584512458\",    \r\n    \"language\": \"srpski\",\r\n    \"isVisible\": 1,\r\n    \"catalogNumber\": \"4578445247\",  \r\n    \"categoryId\":  9, \r\n    \"publisherId\": 1,\r\n    \"locationId\": 1,\r\n    \"authors\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "337"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"151-4PGIJSH4cFlik2PQ6DX0xlBp8/c\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 04:52:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookId\": 6,\n    \"title\": \"Ugrizi me jako\",\n    \"originalTitle\": \"Bite me\",\n    \"publicationYear\": 2017,\n    \"pages\": 158,\n    \"isbn\": \"5487584512458\",\n    \"language\": \"srpski\",\n    \"catalogNumber\": \"4578445247\",\n    \"isVisible\": 1,\n    \"categoryId\": 9,\n    \"publisherId\": 1,\n    \"locationId\": 1,\n    \"bookAuthors\": [\n        {\n            \"bookAuthorId\": 5,\n            \"bookId\": 6,\n            \"authorId\": 4\n        }\n    ],\n    \"category\": {\n        \"categoryId\": 9,\n        \"name\": \"Fantastika\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit a Single Book (with Author(s))",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Ugrizi me jako\",\r\n    \"originalTitle\": \"Bite me\",\r\n    \"publicationYear\": 2017,\r\n    \"pages\": 158,\r\n    \"isbn\": \"5487584512458\",    \r\n    \"language\": \"srpski\",\r\n    \"isVisible\": 1,\r\n    \"catalogNumber\": \"4578445247\",  \r\n    \"categoryId\":  9, \r\n    \"publisherId\": 1,\r\n    \"locationId\": 1,\r\n    \"authors\": [{\r\n        \"authorId\": 10,\r\n        \"bookId\": 6\r\n    }]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/book/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book",
+								"6"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit a Single Book (without Author(s))",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Ugrizi me jako\",\r\n    \"originalTitle\": \"Bite me\",\r\n    \"publicationYear\": 2017,\r\n    \"pages\": 158,\r\n    \"isbn\": \"5487584512458\",    \r\n    \"language\": \"srpski\",\r\n    \"isVisible\": 1,\r\n    \"catalogNumber\": \"4578445247\",  \r\n    \"categoryId\":  9, \r\n    \"publisherId\": 1,\r\n    \"locationId\": 1,\r\n    \"authors\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "337"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"151-4PGIJSH4cFlik2PQ6DX0xlBp8/c\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 04:52:40 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookId\": 6,\n    \"title\": \"Ugrizi me jako\",\n    \"originalTitle\": \"Bite me\",\n    \"publicationYear\": 2017,\n    \"pages\": 158,\n    \"isbn\": \"5487584512458\",\n    \"language\": \"srpski\",\n    \"catalogNumber\": \"4578445247\",\n    \"isVisible\": 1,\n    \"categoryId\": 9,\n    \"publisherId\": 1,\n    \"locationId\": 1,\n    \"bookAuthors\": [\n        {\n            \"bookAuthorId\": 5,\n            \"bookId\": 6,\n            \"authorId\": 4\n        }\n    ],\n    \"category\": {\n        \"categoryId\": 9,\n        \"name\": \"Fantastika\"\n    }\n}"
+						},
+						{
+							"name": "Edit a Single Book (with Author(s))",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"title\": \"Ugrizi me jako\",\r\n    \"originalTitle\": \"Bite me\",\r\n    \"publicationYear\": 2017,\r\n    \"pages\": 158,\r\n    \"isbn\": \"5487584512458\",    \r\n    \"language\": \"srpski\",\r\n    \"isVisible\": 1,\r\n    \"catalogNumber\": \"4578445247\",  \r\n    \"categoryId\":  9, \r\n    \"publisherId\": 1,\r\n    \"locationId\": 1,\r\n    \"authors\": [{\r\n        \"authorId\": 10,\r\n        \"bookId\": 6\r\n    }]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"6"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "339"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"153-qwP8bzigRB+1+4V3wDMoX0DG+gg\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 04:54:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"bookId\": 6,\n    \"title\": \"Ugrizi me jako\",\n    \"originalTitle\": \"Bite me\",\n    \"publicationYear\": 2017,\n    \"pages\": 158,\n    \"isbn\": \"5487584512458\",\n    \"language\": \"srpski\",\n    \"catalogNumber\": \"4578445247\",\n    \"isVisible\": 1,\n    \"categoryId\": 9,\n    \"publisherId\": 1,\n    \"locationId\": 1,\n    \"bookAuthors\": [\n        {\n            \"bookAuthorId\": 10,\n            \"bookId\": 6,\n            \"authorId\": 10\n        }\n    ],\n    \"category\": {\n        \"categoryId\": 9,\n        \"name\": \"Fantastika\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Search Books (by category)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"categoryId\": 8\r\n      \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/book/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book",
+								"search"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search Books (by category)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"categoryId\": 8\r\n      \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"search"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1471"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5bf-Wutn7oFZ7HskBP3jEWk+sSJOv08\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Aug 2020 01:19:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bookId\": 5,\n        \"title\": \"Baze podataka\",\n        \"originalTitle\": \"Baze podataka\",\n        \"publicationYear\": 2016,\n        \"pages\": 186,\n        \"isbn\": \"250000425111\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 1,\n        \"photos\": [\n            {\n                \"photoId\": 1,\n                \"bookId\": 5,\n                \"cover\": \"front\",\n                \"imagePath\": \"2020810-5873313141-baze_podataka.jpg\"\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            },\n            {\n                \"authorId\": 7,\n                \"forename\": \"Milan\",\n                \"surname\": \"Tair\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    },\n    {\n        \"bookId\": 7,\n        \"title\": \"Računarske mreže\",\n        \"originalTitle\": \"Računarske mreže\",\n        \"publicationYear\": 2016,\n        \"pages\": 145,\n        \"isbn\": \"2008978945612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2068\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"photos\": [\n            {\n                \"photoId\": 2,\n                \"bookId\": 7,\n                \"cover\": \"front\",\n                \"imagePath\": \"2020810-2761460363-racunarske_mreze.jpg\"\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    },\n    {\n        \"bookId\": 8,\n        \"title\": \"Osnove programiranja\",\n        \"originalTitle\": \"Osnove programiranja\",\n        \"publicationYear\": 2014,\n        \"pages\": 245,\n        \"isbn\": \"2008978112612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2020171120\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"photos\": [],\n        \"authors\": [\n            {\n                \"authorId\": 9,\n                \"forename\": \"Dejan\",\n                \"surname\": \"Živković\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    }\n]"
+						},
+						{
+							"name": "Search Books",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoryId\": 8,\r\n    \"authors\": [ {\"authorId\": 6}]\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"search"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "902"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"386-iNH1iLaZ4G3fWZsyv5UdWnc9IuY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 23:47:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bookId\": 5,\n        \"title\": \"Baze podataka\",\n        \"originalTitle\": \"Baze podataka\",\n        \"publicationYear\": 2016,\n        \"pages\": 186,\n        \"isbn\": \"250000425111\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 1,\n        \"bookAuthors\": [\n            {\n                \"bookAuthorId\": 2,\n                \"bookId\": 5,\n                \"authorId\": 6\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 7,\n                \"forename\": \"Milan\",\n                \"surname\": \"Tair\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            }\n        ]\n    },\n    {\n        \"bookId\": 7,\n        \"title\": \"Računarske mreže\",\n        \"originalTitle\": \"Računarske mreže\",\n        \"publicationYear\": 2016,\n        \"pages\": 145,\n        \"isbn\": \"2008978945612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2068\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"bookAuthors\": [\n            {\n                \"bookAuthorId\": 6,\n                \"bookId\": 7,\n                \"authorId\": 6\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            },\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Search Books (mixed)",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"categoryId\": 8,  \r\n   \"title\": \"Računarske mreže\",\r\n   \"publicationYear\" : 2016\r\n      \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/book/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"book",
+								"search"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Search Books (by category)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"categoryId\": 8\r\n      \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"search"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1471"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5bf-Wutn7oFZ7HskBP3jEWk+sSJOv08\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Aug 2020 01:19:53 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bookId\": 5,\n        \"title\": \"Baze podataka\",\n        \"originalTitle\": \"Baze podataka\",\n        \"publicationYear\": 2016,\n        \"pages\": 186,\n        \"isbn\": \"250000425111\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 1,\n        \"photos\": [\n            {\n                \"photoId\": 1,\n                \"bookId\": 5,\n                \"cover\": \"front\",\n                \"imagePath\": \"2020810-5873313141-baze_podataka.jpg\"\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            },\n            {\n                \"authorId\": 7,\n                \"forename\": \"Milan\",\n                \"surname\": \"Tair\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    },\n    {\n        \"bookId\": 7,\n        \"title\": \"Računarske mreže\",\n        \"originalTitle\": \"Računarske mreže\",\n        \"publicationYear\": 2016,\n        \"pages\": 145,\n        \"isbn\": \"2008978945612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2068\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"photos\": [\n            {\n                \"photoId\": 2,\n                \"bookId\": 7,\n                \"cover\": \"front\",\n                \"imagePath\": \"2020810-2761460363-racunarske_mreze.jpg\"\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    },\n    {\n        \"bookId\": 8,\n        \"title\": \"Osnove programiranja\",\n        \"originalTitle\": \"Osnove programiranja\",\n        \"publicationYear\": 2014,\n        \"pages\": 245,\n        \"isbn\": \"2008978112612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2020171120\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"photos\": [],\n        \"authors\": [\n            {\n                \"authorId\": 9,\n                \"forename\": \"Dejan\",\n                \"surname\": \"Živković\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    }\n]"
+						},
+						{
+							"name": "Search Books (mixed)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"categoryId\": 8,  \r\n   \"title\": \"Računarske mreže\",\r\n   \"publicationYear\" : 2016\r\n      \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"search"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "529"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"211-YSk+qgj7gXCprPJrHHj9xbVoO1Y\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Aug 2020 01:35:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bookId\": 7,\n        \"title\": \"Računarske mreže\",\n        \"originalTitle\": \"Računarske mreže\",\n        \"publicationYear\": 2016,\n        \"pages\": 145,\n        \"isbn\": \"2008978945612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2068\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"photos\": [\n            {\n                \"photoId\": 2,\n                \"bookId\": 7,\n                \"cover\": \"front\",\n                \"imagePath\": \"2020810-2761460363-racunarske_mreze.jpg\"\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            }\n        ],\n        \"category\": {\n            \"categoryId\": 8,\n            \"name\": \"Informatika\"\n        }\n    }\n]"
+						},
+						{
+							"name": "Search Books",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"categoryId\": 8,\r\n    \"authors\": [ {\"authorId\": 6}]\r\n    \r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/book/search",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"book",
+										"search"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "902"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"386-iNH1iLaZ4G3fWZsyv5UdWnc9IuY\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 23:47:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"bookId\": 5,\n        \"title\": \"Baze podataka\",\n        \"originalTitle\": \"Baze podataka\",\n        \"publicationYear\": 2016,\n        \"pages\": 186,\n        \"isbn\": \"250000425111\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 1,\n        \"bookAuthors\": [\n            {\n                \"bookAuthorId\": 2,\n                \"bookId\": 5,\n                \"authorId\": 6\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            },\n            {\n                \"authorId\": 7,\n                \"forename\": \"Milan\",\n                \"surname\": \"Tair\"\n            },\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            }\n        ]\n    },\n    {\n        \"bookId\": 7,\n        \"title\": \"Računarske mreže\",\n        \"originalTitle\": \"Računarske mreže\",\n        \"publicationYear\": 2016,\n        \"pages\": 145,\n        \"isbn\": \"2008978945612\",\n        \"language\": \"srpski\",\n        \"catalogNumber\": \"2068\",\n        \"isVisible\": 1,\n        \"categoryId\": 8,\n        \"publisherId\": 3,\n        \"locationId\": 3,\n        \"bookAuthors\": [\n            {\n                \"bookAuthorId\": 6,\n                \"bookId\": 7,\n                \"authorId\": 6\n            }\n        ],\n        \"authors\": [\n            {\n                \"authorId\": 6,\n                \"forename\": \"Aleksandar\",\n                \"surname\": \"Jevremović\"\n            },\n            {\n                \"authorId\": 5,\n                \"forename\": \"Mladen \",\n                \"surname\": \"Veinović\"\n            }\n        ]\n    }\n]"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NiwidXNlcm5hbWUiOiJnb3JhbiIsImV4cCI6MTU5ODM0OTIwNi4zNjMsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTcxMzk2MDZ9.OzWgmL8ifbv12Ju157pOKmx2bcTOL_GP0oXYi9amlGE",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "928784e3-f080-4c85-80b9-3c5a9e6f78e6",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6fef3206-1322-4f91-aa2a-00e185d5750d",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login - success",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"boban\",\r\n    \"password\":\"boban\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"boban\",\r\n    \"password\":\"boban\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "600"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"258-r+TVZ0cpDykBa4AmVbo+o24W6SY\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 20 Aug 2020 07:13:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": 9,\n    \"username\": \"boban\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTU5NzkwNzg4OC44NiwiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjYuMyIsImlhdCI6MTU5NzkwNzU4OH0.CuekseKA4EL1teaBFqjhSTeizDa6RrcGh5kVppB5zAY\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMDU4NTk4OC44NjIsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTc5MDc1ODh9.sCqjl8z4aNo1aZ0gPSIIgqekeCX_eujYnvApxOvIi1c\",\n    \"refreshTokenExpiresAt\": \"2020-09-20T07:13:08.862Z\"\n}"
+						},
+						{
+							"name": "Login - success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"matilda\",\r\n    \"password\":\"n3r4zumn1\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "273"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"111-a0gwjcRT9Q2fi1xFgvmTAobGSkA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 10:08:41 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": 3,\n    \"username\": \"matilda\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Login - (invalid User - valid password)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"matildaa\",\r\n    \"password\":\"n3r4zumn1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login - (invalid User - valid password)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"matildaa\",\r\n    \"password\":\"n3r4zumn1\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-6kmJhI1AWgApdXYK2ZTVJjNIgfQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 10:13:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -8006,\n    \"message\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Login - (valid User -invalid password)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"matilda\",\r\n    \"password\":\"n3r4zumn11\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login - (valid User -invalid password)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"matilda\",\r\n    \"password\":\"n3r4zumn11\"\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "52"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"34-FmQ+L3Ncm10Lv42ATuYywO4r0lA\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 10:12:48 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"statusCode\": -8005,\n    \"message\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Refresh User Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NywidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTU5OTg5ODgxNy4yNjgsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTcyMjA0MTd9.UFSt7pqbtVs_Rthg-i0zLTy0vN0ZI4xAvSABo-uQelw\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/auth/user/refresh/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"auth",
+								"user",
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Refresh User Token",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NywidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTU5OTg5ODgxNy4yNjgsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTcyMjA0MTd9.UFSt7pqbtVs_Rthg-i0zLTy0vN0ZI4xAvSABo-uQelw\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/auth/user/refresh/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"auth",
+										"user",
+										"refresh",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "601"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"259-2MMPxAg/OaHODv0r9D02UneRXlk\""
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 12 Aug 2020 08:20:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"userId\": 7,\n    \"username\": \"admin\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NywidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTU5NzIyMDc0Ni41MDksImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTcyMjA0NDZ9.w7CjOv_LuveBjSisAcL_9Z9SKxOJ6hO_OCpEoH28u3A\",\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NywidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTU5OTg5ODgxNy4yNjgsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTcyMjA0MTd9.UFSt7pqbtVs_Rthg-i0zLTy0vN0ZI4xAvSABo-uQelw\",\n    \"refreshTokenExpiresAt\": \"2020-09-12T08:20:17.268Z\"\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Add a Single Author",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"forename\": \"Declan\",\r\n    \"surname\": \"Konner\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"author"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Add a Single Author",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"forename\": \"Declan\",\r\n    \"surname\": \"Konner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/author",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"author"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "54"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"36-Fo871ROyqJqRoSdpthiYLhM8rcc\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 21:49:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authorId\": 10,\n    \"forename\": \"Declan\",\n    \"surname\": \"Konner\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Authors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/author",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"author"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Authors",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjMsInVzZXJuYW1lIjoibWF0aWxkYSIsImV4cCI6MTU5ODI2MzcyMS4yMzcsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjIiLCJpYXQiOjE1OTcwNTQxMjF9.tnLNt90ACcgPG8kDcYwKxbe7B9uYXP0ye4y6cPpCKJE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:3000/api/author",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"author"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "554"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"22a-rbUBfuc4D5eTCGumtqIUZoybhuQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 10 Aug 2020 21:51:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"authorId\": 6,\n        \"forename\": \"Aleksandar\",\n        \"surname\": \"Jevremović\"\n    },\n    {\n        \"authorId\": 10,\n        \"forename\": \"Declan\",\n        \"surname\": \"Konner\"\n    },\n    {\n        \"authorId\": 9,\n        \"forename\": \"Dejan\",\n        \"surname\": \"Živković\"\n    },\n    {\n        \"authorId\": 1,\n        \"forename\": \"Dobrica\",\n        \"surname\": \"Ćosić\"\n    },\n    {\n        \"authorId\": 7,\n        \"forename\": \"Milan\",\n        \"surname\": \"Tair\"\n    },\n    {\n        \"authorId\": 5,\n        \"forename\": \"Mladen \",\n        \"surname\": \"Veinović\"\n    },\n    {\n        \"authorId\": 3,\n        \"forename\": \"Momo\",\n        \"surname\": \"Kapor\"\n    },\n    {\n        \"authorId\": 8,\n        \"forename\": \"Sigmund\",\n        \"surname\": \"Frojd\"\n    },\n    {\n        \"authorId\": 4,\n        \"forename\": \"Tahere\",\n        \"surname\": \"Mafi\"\n    },\n    {\n        \"authorId\": 2,\n        \"forename\": \"Vuk\",\n        \"surname\": \"Drašković\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a Single Author",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/author/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"author",
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a Single Author",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/author/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"author",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "341"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"155-D4R3PYQH1dLAzgJNKPYCf9CbqAA\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 02:39:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authorId\": 8,\n    \"forename\": \"Sigmund\",\n    \"surname\": \"Frojd\",\n    \"books\": [\n        {\n            \"bookId\": 1,\n            \"title\": \"Kompletan uvod u psihoanalizu\",\n            \"originalTitle\": \"Vorlesungen zur Einführung in die Psychoanalyse\",\n            \"publicationYear\": 2006,\n            \"pages\": 523,\n            \"isbn\": \"2500001201142\",\n            \"language\": \"srpski\",\n            \"catalogNumber\": \"1\",\n            \"isVisible\": 1,\n            \"categoryId\": 6,\n            \"publisherId\": 2,\n            \"locationId\": 4\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit an Existing Author (invalid)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"forename\": \"Momak\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/author/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"author",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit an Existing Author",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"forename\": \"Momak\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/author/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"author",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "62"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3e-IcJJ4F/saA15RjmSAcUcUxIUmQM\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 02:43:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authorId\": 3,\n    \"forename\": \"Momak\",\n    \"surname\": \"Kapor\",\n    \"books\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Edit an Existing Author Copy (correction)",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"forename\": \"Momo\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/author/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"author",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Edit an Existing Author Copy (correction)",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"forename\": \"Momo\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/author/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"author",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "61"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3d-Rz5I9iuXTFWsVcy3z364gaBBQ5s\""
+								},
+								{
+									"key": "Date",
+									"value": "Tue, 11 Aug 2020 02:45:10 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authorId\": 3,\n    \"forename\": \"Momo\",\n    \"surname\": \"Kapor\",\n    \"books\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Get a Single Author By Forename And Surname",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"forename\": \"Aleksandar\",\r\n    \"surname\": \"Jevremovic\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/author/findOne/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"author",
+								"findOne",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get a Single Author By Forename And Surname",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"forename\": \"Milan\",\r\n    \"surname\": \"Tair\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api/author/findOne/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"author",
+										"findOne",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "50"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"32-GqADGzCKag+WdcHTIymJ5NwxJZQ\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 15 Aug 2020 13:40:09 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"authorId\": 7,\n    \"forename\": \"Milan\",\n    \"surname\": \"Tair\"\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6MywidXNlcm5hbWUiOiJtYXRpbGRhIiwiZXhwIjoxNTk4MzQzOTkzLjM0OCwiaXAiOiI6OjEiLCJ1YSI6IlBvc3RtYW5SdW50aW1lLzcuMjYuMyIsImlhdCI6MTU5NzEzNDM5M30.gDCzcQbXpqUjCsR1cm3Af-tW5Qr9pGYVEujGjF9VxUA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "16912d06-ea80-400e-ae89-5f58076e39fa",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dfa5a179-050c-428b-a37f-08caf237583f",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Get info - all categories",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTU5NzM1NjI2My42NjUsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTczNTU5NjN9.wWQlsi5AssqjOKZIWZ62x5WADk2svOE5uycWOlyTeaM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get info - all categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "337"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"151-iCc7ynf/Ampti1pc4YdKSAXGit8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Aug 2020 21:59:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"categoryId\": 1,\n        \"name\": \"Dečija književnost\"\n    },\n    {\n        \"categoryId\": 9,\n        \"name\": \"Fantastika\"\n    },\n    {\n        \"categoryId\": 2,\n        \"name\": \"Filozofija\"\n    },\n    {\n        \"categoryId\": 8,\n        \"name\": \"Informatika\"\n    },\n    {\n        \"categoryId\": 3,\n        \"name\": \"Istorija\"\n    },\n    {\n        \"categoryId\": 4,\n        \"name\": \"Medicina\"\n    },\n    {\n        \"categoryId\": 5,\n        \"name\": \"Politika\"\n    },\n    {\n        \"categoryId\": 6,\n        \"name\": \"Psihologija\"\n    },\n    {\n        \"categoryId\": 7,\n        \"name\": \"Rečnik\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get info - a single category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6OSwidXNlcm5hbWUiOiJib2JhbiIsImV4cCI6MTYwMDAzNTEzNS40NDQsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTczNTY3MzV9.IUbbiQG1agOtUHdKvaPcU1ul-uVilY31_wvJtUfK1zM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/category/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"category",
+								"8"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get info - all categories",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"category"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "337"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"151-iCc7ynf/Ampti1pc4YdKSAXGit8\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Aug 2020 21:59:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"categoryId\": 1,\n        \"name\": \"Dečija književnost\"\n    },\n    {\n        \"categoryId\": 9,\n        \"name\": \"Fantastika\"\n    },\n    {\n        \"categoryId\": 2,\n        \"name\": \"Filozofija\"\n    },\n    {\n        \"categoryId\": 8,\n        \"name\": \"Informatika\"\n    },\n    {\n        \"categoryId\": 3,\n        \"name\": \"Istorija\"\n    },\n    {\n        \"categoryId\": 4,\n        \"name\": \"Medicina\"\n    },\n    {\n        \"categoryId\": 5,\n        \"name\": \"Politika\"\n    },\n    {\n        \"categoryId\": 6,\n        \"name\": \"Psihologija\"\n    },\n    {\n        \"categoryId\": 7,\n        \"name\": \"Rečnik\"\n    }\n]"
+						},
+						{
+							"name": "Get info -a single category",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/category/8",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"category",
+										"8"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "763"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"2fb-qbbx0uq1LqMshYFNEqb1oORRQ4o\""
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 13 Aug 2020 22:23:27 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"categoryId\": 8,\n    \"name\": \"Informatika\",\n    \"books\": [\n        {\n            \"bookId\": 5,\n            \"title\": \"Baze podataka\",\n            \"originalTitle\": \"Baze podataka\",\n            \"publicationYear\": 2016,\n            \"pages\": 186,\n            \"isbn\": \"250000425111\",\n            \"language\": \"srpski\",\n            \"catalogNumber\": \"2\",\n            \"isVisible\": 1,\n            \"categoryId\": 8,\n            \"publisherId\": 3,\n            \"locationId\": 1\n        },\n        {\n            \"bookId\": 7,\n            \"title\": \"Računarske mreže\",\n            \"originalTitle\": \"Računarske mreže\",\n            \"publicationYear\": 2016,\n            \"pages\": 145,\n            \"isbn\": \"2008978945612\",\n            \"language\": \"srpski\",\n            \"catalogNumber\": \"2068\",\n            \"isVisible\": 1,\n            \"categoryId\": 8,\n            \"publisherId\": 3,\n            \"locationId\": 3\n        },\n        {\n            \"bookId\": 8,\n            \"title\": \"Osnove programiranja\",\n            \"originalTitle\": \"Osnove programiranja\",\n            \"publicationYear\": 2014,\n            \"pages\": 245,\n            \"isbn\": \"2008978112612\",\n            \"language\": \"srpski\",\n            \"catalogNumber\": \"2020171120\",\n            \"isVisible\": 1,\n            \"categoryId\": 8,\n            \"publisherId\": 3,\n            \"locationId\": 3\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Publisher",
+			"item": [
+				{
+					"name": "Get All Publishers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NywidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTU5NzY0ODE4NC4yNTgsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTc2NDc4ODR9.cj8rNO4P85mAk7u_MF9NFNv70JDHpQ9GfJYo3MoS8uI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/publisher",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"publisher"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Publishers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/publisher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"publisher"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1888"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"760-/2P8zMR3fNQoAZJ2Fa31MQGqSbg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Aug 2020 07:05:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"publisherId\": 2,\n        \"name\": \"Klett\",\n        \"city\": \"Berlin\",\n        \"state\": \"Nemačka\",\n        \"foundedIn\": 1956,\n        \"books\": [\n            {\n                \"bookId\": 1,\n                \"title\": \"Kompletan uvod u psihoanalizu\",\n                \"originalTitle\": \"Vorlesungen zur Einführung in die Psychoanalyse\",\n                \"publicationYear\": 2006,\n                \"pages\": 523,\n                \"isbn\": \"2500001201142\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"1\",\n                \"isVisible\": 1,\n                \"categoryId\": 6,\n                \"publisherId\": 2,\n                \"locationId\": 4\n            }\n        ]\n    },\n    {\n        \"publisherId\": 3,\n        \"name\": \"Univerzitet Singidunum\",\n        \"city\": \"Beograd\",\n        \"state\": \"Srbija\",\n        \"foundedIn\": 2003,\n        \"books\": [\n            {\n                \"bookId\": 5,\n                \"title\": \"Baze podataka\",\n                \"originalTitle\": \"Baze podataka\",\n                \"publicationYear\": 2016,\n                \"pages\": 186,\n                \"isbn\": \"250000425111\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 1\n            },\n            {\n                \"bookId\": 7,\n                \"title\": \"Računarske mreže\",\n                \"originalTitle\": \"Računarske mreže\",\n                \"publicationYear\": 2016,\n                \"pages\": 145,\n                \"isbn\": \"2008978945612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2068\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 3\n            },\n            {\n                \"bookId\": 8,\n                \"title\": \"Osnove programiranja\",\n                \"originalTitle\": \"Osnove programiranja\",\n                \"publicationYear\": 2014,\n                \"pages\": 245,\n                \"isbn\": \"2008978112612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2020171120\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 3\n            }\n        ]\n    },\n    {\n        \"publisherId\": 1,\n        \"name\": \"Laguna\",\n        \"city\": \"Beograd\",\n        \"state\": \"Srbija\",\n        \"foundedIn\": 1999,\n        \"books\": [\n            {\n                \"bookId\": 6,\n                \"title\": \"Ugrizi me jako\",\n                \"originalTitle\": \"Bite me\",\n                \"publicationYear\": 2017,\n                \"pages\": 158,\n                \"isbn\": \"5487584512458\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"4578445247\",\n                \"isVisible\": 1,\n                \"categoryId\": 9,\n                \"publisherId\": 1,\n                \"locationId\": 1\n            },\n            {\n                \"bookId\": 11,\n                \"title\": \"Smrtonosno putovanje\",\n                \"originalTitle\": \"Deadly journey\",\n                \"publicationYear\": 2018,\n                \"pages\": 193,\n                \"isbn\": \"2978978945612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"880171120\",\n                \"isVisible\": 1,\n                \"categoryId\": 9,\n                \"publisherId\": 1,\n                \"locationId\": 1\n            }\n        ]\n    },\n    {\n        \"publisherId\": 4,\n        \"name\": \"Harvard University Press\",\n        \"city\": \"Cambridge, MA\",\n        \"state\": \"SAD\",\n        \"foundedIn\": 1977,\n        \"books\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get a Single Publisher",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NywidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTU5NzY0ODE4NC4yNTgsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTc2NDc4ODR9.cj8rNO4P85mAk7u_MF9NFNv70JDHpQ9GfJYo3MoS8uI",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/publisher/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"publisher",
+								"3"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Publishers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/publisher",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"publisher"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1888"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"760-/2P8zMR3fNQoAZJ2Fa31MQGqSbg\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Aug 2020 07:05:06 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"publisherId\": 2,\n        \"name\": \"Klett\",\n        \"city\": \"Berlin\",\n        \"state\": \"Nemačka\",\n        \"foundedIn\": 1956,\n        \"books\": [\n            {\n                \"bookId\": 1,\n                \"title\": \"Kompletan uvod u psihoanalizu\",\n                \"originalTitle\": \"Vorlesungen zur Einführung in die Psychoanalyse\",\n                \"publicationYear\": 2006,\n                \"pages\": 523,\n                \"isbn\": \"2500001201142\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"1\",\n                \"isVisible\": 1,\n                \"categoryId\": 6,\n                \"publisherId\": 2,\n                \"locationId\": 4\n            }\n        ]\n    },\n    {\n        \"publisherId\": 3,\n        \"name\": \"Univerzitet Singidunum\",\n        \"city\": \"Beograd\",\n        \"state\": \"Srbija\",\n        \"foundedIn\": 2003,\n        \"books\": [\n            {\n                \"bookId\": 5,\n                \"title\": \"Baze podataka\",\n                \"originalTitle\": \"Baze podataka\",\n                \"publicationYear\": 2016,\n                \"pages\": 186,\n                \"isbn\": \"250000425111\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 1\n            },\n            {\n                \"bookId\": 7,\n                \"title\": \"Računarske mreže\",\n                \"originalTitle\": \"Računarske mreže\",\n                \"publicationYear\": 2016,\n                \"pages\": 145,\n                \"isbn\": \"2008978945612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2068\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 3\n            },\n            {\n                \"bookId\": 8,\n                \"title\": \"Osnove programiranja\",\n                \"originalTitle\": \"Osnove programiranja\",\n                \"publicationYear\": 2014,\n                \"pages\": 245,\n                \"isbn\": \"2008978112612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2020171120\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 3\n            }\n        ]\n    },\n    {\n        \"publisherId\": 1,\n        \"name\": \"Laguna\",\n        \"city\": \"Beograd\",\n        \"state\": \"Srbija\",\n        \"foundedIn\": 1999,\n        \"books\": [\n            {\n                \"bookId\": 6,\n                \"title\": \"Ugrizi me jako\",\n                \"originalTitle\": \"Bite me\",\n                \"publicationYear\": 2017,\n                \"pages\": 158,\n                \"isbn\": \"5487584512458\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"4578445247\",\n                \"isVisible\": 1,\n                \"categoryId\": 9,\n                \"publisherId\": 1,\n                \"locationId\": 1\n            },\n            {\n                \"bookId\": 11,\n                \"title\": \"Smrtonosno putovanje\",\n                \"originalTitle\": \"Deadly journey\",\n                \"publicationYear\": 2018,\n                \"pages\": 193,\n                \"isbn\": \"2978978945612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"880171120\",\n                \"isVisible\": 1,\n                \"categoryId\": 9,\n                \"publisherId\": 1,\n                \"locationId\": 1\n            }\n        ]\n    },\n    {\n        \"publisherId\": 4,\n        \"name\": \"Harvard University Press\",\n        \"city\": \"Cambridge, MA\",\n        \"state\": \"SAD\",\n        \"foundedIn\": 1977,\n        \"books\": []\n    }\n]"
+						},
+						{
+							"name": "Get a Single Publisher",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/publisher/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"publisher",
+										"3"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "826"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"33a-D2EJ2qNGALxtItAjKjIGl2uUASI\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Aug 2020 07:06:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"publisherId\": 3,\n    \"name\": \"Univerzitet Singidunum\",\n    \"city\": \"Beograd\",\n    \"state\": \"Srbija\",\n    \"foundedIn\": 2003,\n    \"books\": [\n        {\n            \"bookId\": 5,\n            \"title\": \"Baze podataka\",\n            \"originalTitle\": \"Baze podataka\",\n            \"publicationYear\": 2016,\n            \"pages\": 186,\n            \"isbn\": \"250000425111\",\n            \"language\": \"srpski\",\n            \"catalogNumber\": \"2\",\n            \"isVisible\": 1,\n            \"categoryId\": 8,\n            \"publisherId\": 3,\n            \"locationId\": 1\n        },\n        {\n            \"bookId\": 7,\n            \"title\": \"Računarske mreže\",\n            \"originalTitle\": \"Računarske mreže\",\n            \"publicationYear\": 2016,\n            \"pages\": 145,\n            \"isbn\": \"2008978945612\",\n            \"language\": \"srpski\",\n            \"catalogNumber\": \"2068\",\n            \"isVisible\": 1,\n            \"categoryId\": 8,\n            \"publisherId\": 3,\n            \"locationId\": 3\n        },\n        {\n            \"bookId\": 8,\n            \"title\": \"Osnove programiranja\",\n            \"originalTitle\": \"Osnove programiranja\",\n            \"publicationYear\": 2014,\n            \"pages\": 245,\n            \"isbn\": \"2008978112612\",\n            \"language\": \"srpski\",\n            \"catalogNumber\": \"2020171120\",\n            \"isVisible\": 1,\n            \"categoryId\": 8,\n            \"publisherId\": 3,\n            \"locationId\": 3\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Location",
+			"item": [
+				{
+					"name": "Get All Locations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NywidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTU5NzY0OTQwMS42MjUsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTc2NDkxMDF9.5H51-TZNqass1YJZietz2EsWGH3nBVS7mJNr8x2fMhE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/location",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"location"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get All Locations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/location",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"location"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1789"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"6fd-EkH3G0eM172TDO6BK5CqIhuKxlE\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Aug 2020 07:25:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"locationId\": 4,\n        \"room\": \"Kancelarija\",\n        \"shelf\": \"KC01\",\n        \"books\": [\n            {\n                \"bookId\": 1,\n                \"title\": \"Kompletan uvod u psihoanalizu\",\n                \"originalTitle\": \"Vorlesungen zur Einführung in die Psychoanalyse\",\n                \"publicationYear\": 2006,\n                \"pages\": 523,\n                \"isbn\": \"2500001201142\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"1\",\n                \"isVisible\": 1,\n                \"categoryId\": 6,\n                \"publisherId\": 2,\n                \"locationId\": 4\n            }\n        ]\n    },\n    {\n        \"locationId\": 1,\n        \"room\": \"Dnevna soba\",\n        \"shelf\": \"DS01\",\n        \"books\": [\n            {\n                \"bookId\": 5,\n                \"title\": \"Baze podataka\",\n                \"originalTitle\": \"Baze podataka\",\n                \"publicationYear\": 2016,\n                \"pages\": 186,\n                \"isbn\": \"250000425111\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 1\n            },\n            {\n                \"bookId\": 6,\n                \"title\": \"Ugrizi me jako\",\n                \"originalTitle\": \"Bite me\",\n                \"publicationYear\": 2017,\n                \"pages\": 158,\n                \"isbn\": \"5487584512458\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"4578445247\",\n                \"isVisible\": 1,\n                \"categoryId\": 9,\n                \"publisherId\": 1,\n                \"locationId\": 1\n            },\n            {\n                \"bookId\": 11,\n                \"title\": \"Smrtonosno putovanje\",\n                \"originalTitle\": \"Deadly journey\",\n                \"publicationYear\": 2018,\n                \"pages\": 193,\n                \"isbn\": \"2978978945612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"880171120\",\n                \"isVisible\": 1,\n                \"categoryId\": 9,\n                \"publisherId\": 1,\n                \"locationId\": 1\n            }\n        ]\n    },\n    {\n        \"locationId\": 3,\n        \"room\": \"Dnevna soba\",\n        \"shelf\": \"DS02\",\n        \"books\": [\n            {\n                \"bookId\": 7,\n                \"title\": \"Računarske mreže\",\n                \"originalTitle\": \"Računarske mreže\",\n                \"publicationYear\": 2016,\n                \"pages\": 145,\n                \"isbn\": \"2008978945612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2068\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 3\n            },\n            {\n                \"bookId\": 8,\n                \"title\": \"Osnove programiranja\",\n                \"originalTitle\": \"Osnove programiranja\",\n                \"publicationYear\": 2014,\n                \"pages\": 245,\n                \"isbn\": \"2008978112612\",\n                \"language\": \"srpski\",\n                \"catalogNumber\": \"2020171120\",\n                \"isVisible\": 1,\n                \"categoryId\": 8,\n                \"publisherId\": 3,\n                \"locationId\": 3\n            }\n        ]\n    },\n    {\n        \"locationId\": 6,\n        \"room\": \"Dečija soba\",\n        \"shelf\": \"DČ01\",\n        \"books\": []\n    },\n    {\n        \"locationId\": 5,\n        \"room\": \"Kancelarija\",\n        \"shelf\": \"KC02\",\n        \"books\": []\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get A Single Location",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoidXNlciIsInVzZXJJZCI6NywidXNlcm5hbWUiOiJhZG1pbiIsImV4cCI6MTU5NzY0OTQwMS42MjUsImlwIjoiOjoxIiwidWEiOiJQb3N0bWFuUnVudGltZS83LjI2LjMiLCJpYXQiOjE1OTc2NDkxMDF9.5H51-TZNqass1YJZietz2EsWGH3nBVS7mJNr8x2fMhE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/location/4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"location",
+								"4"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get A Single Location",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api/location/4",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api",
+										"location",
+										"4"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "340"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"154-pEmv2+RMOE+FyDXm1f8pDhIrfJ0\""
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 17 Aug 2020 07:26:17 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"locationId\": 4,\n    \"room\": \"Kancelarija\",\n    \"shelf\": \"KC01\",\n    \"books\": [\n        {\n            \"bookId\": 1,\n            \"title\": \"Kompletan uvod u psihoanalizu\",\n            \"originalTitle\": \"Vorlesungen zur Einführung in die Psychoanalyse\",\n            \"publicationYear\": 2006,\n            \"pages\": 523,\n            \"isbn\": \"2500001201142\",\n            \"language\": \"srpski\",\n            \"catalogNumber\": \"1\",\n            \"isVisible\": 1,\n            \"categoryId\": 6,\n            \"publisherId\": 2,\n            \"locationId\": 4\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Test",
+			"item": [
+				{
+					"name": "Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/visitor/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"visitor",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "One category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/visitor/category/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"visitor",
+								"category",
+								"8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search for a category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"categoryId\": 8\r\n      \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/visitor/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"visitor",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get a Single Book By Visitor",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"forename\": \"Milan\",\r\n    \"surname\": \"Tair\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/visitor/book/7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"visitor",
+								"book",
+								"7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find an Author By F or S",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"forename\": \"Milan\",\r\n    \"surname\": \"Tair\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/visitor/findOne",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"visitor",
+								"findOne"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Authors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a Full Photo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a0f21c6c-03b0-44b9-b88a-73d5dc3d1a86",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "26f38ddd-0218-44ad-8d2f-14ebe1f6a2a5",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
